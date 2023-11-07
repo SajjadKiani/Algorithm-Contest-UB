@@ -1,0 +1,2 @@
+# competition-registration
+ cs
