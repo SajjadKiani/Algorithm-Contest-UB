@@ -1,9 +1,16 @@
 from django.contrib import admin
-from .models import Skill, Contact
+from .models import Team, Contact
 
 # Register your models here.
 
-admin.site.register(Skill)
+@admin.register(Team)
+class TeamAdmin(admin.ModelAdmin):
+    date_hierarchy = "created_date"
+    empty_value_display = "-"
+    list_display = ("team_name", "university", "language", "created_date")
+    search_fields = ("team_name", "university", "language")
+
+
 
 
 @admin.register(Contact)

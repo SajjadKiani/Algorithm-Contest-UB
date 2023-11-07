@@ -1,25 +1,58 @@
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
-
+from django.core.validators import RegexValidator
 # Create your models here.
 
 
-class Skill(models.Model):
-    team = models.CharField(max_length=255)
-    name1 = models.CharField(max_length=255)
-    name2 = models.CharField(max_length=255)
-    name3 = models.CharField(max_length=255)
-    percentage = models.IntegerField(
-        validators=[MinValueValidator(0), MaxValueValidator(100)], default=0
+class Team(models.Model):
+    team_name = models.CharField(max_length=255, verbose_name="نام تیم")
+    university = models.CharField(max_length=255, verbose_name="نام دانشگاه")
+    language = models.CharField(max_length=120, verbose_name="زبان برنامه نویسیس")
+    agree = models.BooleanField(default=False, verbose_name="موافقت نامه")
+    GENDER_CHOICES = [
+        ('M', 'مرد'),
+        ('F', 'زن'),
+    ]
+    first_name1 = models.CharField(max_length=255)
+    last_name1 = models.CharField(max_length=255)
+    gender1 = models.CharField(max_length=1, choices=GENDER_CHOICES)
+    phone1 = models.CharField(
+        max_length=11,
+        validators=[RegexValidator(r'^\d{11}$', 'Enter a valid 11-digit phone number.')]
     )
+    email1 = models.CharField(max_length=255)
+    education1 = models.CharField(max_length=255)
+    student_number1 = models.CharField(max_length=20)
+
+    first_name2 = models.CharField(max_length=255)
+    last_name2 = models.CharField(max_length=255)
+    gender2 = models.CharField(max_length=1, choices=GENDER_CHOICES)
+    phone2 = models.CharField(
+        max_length=11,
+        validators=[RegexValidator(r'^\d{11}$', 'Enter a valid 11-digit phone number.')]
+    )
+    email2 = models.CharField(max_length=255)
+    education2 = models.CharField(max_length=255)
+    student_number2 = models.CharField(max_length=20)
+
+    first_name3 = models.CharField(max_length=255, null=True, blank=True)
+    last_name3 = models.CharField(max_length=255, null=True, blank=True)
+    gender3 = models.CharField(max_length=1, choices=GENDER_CHOICES, null=True, blank=True)
+    phone3 = models.CharField(max_length=11, null=True, blank=True)
+    email3 = models.CharField(max_length=255, null=True, blank=True)
+    education3 = models.CharField(max_length=255, null=True, blank=True)
+    student_number3 = models.CharField(max_length=20, null=True, blank=True)
+
+
     created_date = models.DateTimeField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True)
 
     class Meta:
-        ordering = ["name", "percentage"]
-
+        ordering = ["-created_date", "team_name", "university", "language"]
+        verbose_name = "تیم"
+        verbose_name_plural = "تیم ها"
     def __str__(self):
-        return self.name
+        return self.team_name
 
 
 class Contact(models.Model):
