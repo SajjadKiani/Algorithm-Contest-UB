@@ -1,0 +1,418 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<!-- <title>  -->
+{% block title %} ub-csc contest {% endblock %}
+<!-- <extra css>-->
+{% block extra_css %}{% endblock %}
+
+<!-- <body> -->
+
+{% block content %}
+
+
+	<!-- Header section -->
+	<header class="header-section">
+		<div class="logo">
+			<img src="{% static 'pics/logo.png' %}" alt=""><!-- Logo -->
+		</div>
+		<!-- Navigation -->
+		<div class="responsive"><i class="fa fa-bars"></i></div>
+		<nav>
+			<ul class="menu-list">
+				<li class="active"><a href="{% url 'website:index' %}">صفحه نخست</a></li>
+				<li><a href="{% url 'website:services' %}">سرویس ها</a></li>
+				<li><a href="{% url 'blog:index' %}">بلاگ</a></li>
+				<li><a href="{% url 'website:contact' %}">تماس با ما</a></li>
+			</ul>
+		</nav>
+	</header>
+	<!-- Header section end -->
+
+
+	<!-- Intro Section -->
+	<div class="hero-section">
+		<div class="hero-content">
+			<div class="hero-center">
+				<img src="{% static 'pics/big-logo.png' %}" alt="">
+				<p>همین حالا قالب خود را دریافت کنید</p>
+			</div>
+		</div>
+		<!-- slider -->
+		<div id="hero-slider" class="owl-carousel">
+			<div class="item  hero-item" data-bg="{% static 'pics/01.jpg' %}"></div>
+			<div class="item  hero-item" data-bg="{% static 'pics/02.jpg' %}"></div>
+		</div>
+	</div>
+	<!-- Intro Section -->
+
+
+	<!-- About section -->
+	<div class="about-section">
+		<div class="overlay"></div>
+		<!-- card section -->
+		<div class="card-section">
+			<div class="container">
+				<div class="row">
+					<!-- single card -->
+					<div class="col-md-4 col-sm-6">
+						<div class="lab-card">
+							<div class="icon">
+								<i class="flaticon-023-flask"></i>
+							</div>
+							<h2>دارای آزمایشگاه</h2>
+							<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است</p>
+						</div>
+					</div>
+					<!-- single card -->
+					<div class="col-md-4 col-sm-6">
+						<div class="lab-card">
+							<div class="icon">
+								<i class="flaticon-011-compass"></i>
+							</div>
+							<h2>پروژه های آنلاین</h2>
+							<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است</p>
+						</div>
+					</div>
+					<!-- single card -->
+					<div class="col-md-4 col-sm-12">
+						<div class="lab-card">
+							<div class="icon">
+								<i class="flaticon-037-idea"></i>
+							</div>
+							<h2>بازاریابی هوشمند</h2>
+							<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- card section end-->
+
+
+		<!-- About contant -->
+		<div class="about-contant">
+			<div class="container">
+				<div class="section-title">
+					<h2>وارد <span>آزمایشگاه</span> شوید و جهان را جستجو کنید</h2>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.</p>
+					</div>
+					<div class="col-md-6">
+						<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.</p>
+					</div>
+				</div>
+				<div class="text-center mt60">
+					<a href="" class="site-btn">بیشتر</a>
+				</div>
+				<!-- popup video -->
+				<div class="intro-video">
+					<div class="row">
+						<div class="col-md-8 col-md-offset-2">
+							<img src="{% static 'pics/video.jpg' %}" alt="">
+							<a href="#" class="video-popup"><!-- insert your video link here -->
+								<i class="fa fa-play"></i>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- About section end -->
+
+
+	<!-- Testimonial section -->
+	<div class="testimonial-section pb100">
+		<div class="test-overlay"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 col-md-offset-4">
+					<div class="section-title left">
+						<h2>نظرهای مشتریان ما</h2>
+					</div>
+					<div class="owl-carousel" id="testimonial-slide">
+						<!-- single testimonial -->
+						<div class="testimonial">
+							<span>‘​‌‘​‌</span>
+							<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. </p>
+							<div class="client-info">
+								<div class="avatar">
+									<img src="{% static 'pics/avatar/01.jpg' %}" alt="">
+								</div>
+								<div class="client-name">
+									<h2>نام و نام خانوادگی</h2>
+									<p>سمت و شغل</p>
+								</div>
+							</div>
+						</div>
+						<!-- single testimonial -->
+						<div class="testimonial">
+							<span>‘​‌‘​‌</span>
+							<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. </p>
+							<div class="client-info">
+								<div class="avatar">
+									<img src="{% static 'pics/avatar/02.jpg' %}" alt="">
+								</div>
+								<div class="client-name">
+									<h2>نام و نام خانوادگی</h2>
+									<p>سمت و شغل</p>
+								</div>
+							</div>
+						</div>
+						<!-- single testimonial -->
+						<div class="testimonial">
+							<span>‘​‌‘​‌</span>
+							<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. </p>
+							<div class="client-info">
+								<div class="avatar">
+									<img src="{% static 'pics/avatar/03.jpg' %}" alt="">
+								</div>
+								<div class="client-name">
+									<h2>نام و نام خانوادگی</h2>
+									<p>سمت و شغل</p>
+								</div>
+							</div>
+						</div>
+						<!-- single testimonial -->
+						<div class="testimonial">
+							<span>‘​‌‘​‌</span>
+							<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. </p>
+							<div class="client-info">
+								<div class="avatar">
+									<img src="{% static 'pics/avatar/01.jpg' %}" alt="">
+								</div>
+								<div class="client-name">
+									<h2>نام و نام خانوادگی</h2>
+									<p>سمت و شغل</p>
+								</div>
+							</div>
+						</div>
+						<!-- single testimonial -->
+						<div class="testimonial">
+							<span>‘​‌‘​‌</span>
+							<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. </p>
+							<div class="client-info">
+								<div class="avatar">
+									<img src="{% static 'pics/avatar/02.jpg' %}" alt="">
+								</div>
+								<div class="client-name">
+									<h2>نام و نام خانوادگی</h2>
+									<p>سمت و شغل</p>
+								</div>
+							</div>
+						</div>
+						<!-- single testimonial -->
+						<div class="testimonial">
+							<span>‘​‌‘​‌</span>
+							<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. </p>
+							<div class="client-info">
+								<div class="avatar">
+									<img src="{% static 'pics/avatar/03.jpg' %}" alt="">
+								</div>
+								<div class="client-name">
+									<h2>نام و نام خانوادگی</h2>
+									<p>سمت و شغل</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Testimonial section end-->
+
+
+	<!-- Services section -->
+	<div class="services-section spad">
+		<div class="container">
+			<div class="section-title dark">
+				<h2>وارد <span>آزمایشگاه</span> شوید و سرویس های ما را ببینید</h2>
+			</div>
+			<div class="row">
+				<!-- single service -->
+				<div class="col-md-4 col-sm-6">
+					<div class="service">
+						<div class="icon">
+							<i class="flaticon-023-flask"></i>
+						</div>
+						<div class="service-text">
+							<h2>آزمایشگاه</h2>
+							<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. </p>
+						</div>
+					</div>
+				</div>
+				<!-- single service -->
+				<div class="col-md-4 col-sm-6">
+					<div class="service">
+						<div class="icon">
+							<i class="flaticon-011-compass"></i>
+						</div>
+						<div class="service-text">
+							<h2>پروژه های آنلاین</h2>
+							<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. </p>
+						</div>
+					</div>
+				</div>
+				<!-- single service -->
+				<div class="col-md-4 col-sm-6">
+					<div class="service">
+						<div class="icon">
+							<i class="flaticon-037-idea"></i>
+						</div>
+						<div class="service-text">
+							<h2>بازاریابی هوشمند</h2>
+							<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. </p>
+						</div>
+					</div>
+				</div>
+				<!-- single service -->
+				<div class="col-md-4 col-sm-6">
+					<div class="service">
+						<div class="icon">
+							<i class="flaticon-039-vector"></i>
+						</div>
+						<div class="service-text">
+							<h2>شبکه های اجتماعی</h2>
+							<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. </p>
+						</div>
+					</div>
+				</div>
+				<!-- single service -->
+				<div class="col-md-4 col-sm-6">
+					<div class="service">
+						<div class="icon">
+							<i class="flaticon-036-brainstorming"></i>
+						</div>
+						<div class="service-text">
+							<h2>طوفان مغزی</h2>
+							<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. </p>
+						</div>
+					</div>
+				</div>
+				<!-- single service -->
+				<div class="col-md-4 col-sm-6">
+					<div class="service">
+						<div class="icon">
+							<i class="flaticon-026-search"></i>
+						</div>
+						<div class="service-text">
+							<h2>مستندسازی</h2>
+							<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. </p>
+						</div>
+					</div>
+				</div>
+				<!-- single service -->
+				<div class="col-md-4 col-sm-6">
+					<div class="service">
+						<div class="icon">
+							<i class="flaticon-018-laptop-1"></i>
+						</div>
+						<div class="service-text">
+							<h2>واکنش گرا</h2>
+							<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. </p>
+						</div>
+					</div>
+				</div>
+				<!-- single service -->
+				<div class="col-md-4 col-sm-6">
+					<div class="service">
+						<div class="icon">
+							<i class="flaticon-043-sketch"></i>
+						</div>
+						<div class="service-text">
+							<h2>آماده سازی</h2>
+							<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. </p>
+						</div>
+					</div>
+				</div>
+				<!-- single service -->
+				<div class="col-md-4 col-sm-6">
+					<div class="service">
+						<div class="icon">
+							<i class="flaticon-012-cube"></i>
+						</div>
+						<div class="service-text">
+							<h2>مدرن</h2>
+							<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. </p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="text-center">
+				<a href="" class="site-btn">بیشتر</a>
+			</div>
+		</div>
+	</div>
+	<!-- services section end -->
+
+
+	<!-- Team Section -->
+	<div class="team-section spad">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="section-title">
+				<h2>وارد <span>آزمایشگاه</span> شوید و تیم ما را بشناسید</h2>
+			</div>
+			<div class="row">
+				<!-- single member -->
+				<div class="col-sm-4">
+					<div class="member">
+						<img src="{% static 'pics/team/1.jpg' %}" alt="">
+						<h2>نام و نام خانوداگی</h2>
+						<h3>مدیر آزمایشگاه</h3>
+					</div>
+				</div>
+				<!-- single member -->
+				<div class="col-sm-4">
+					<div class="member">
+						<img src="{% static 'pics/team/2.jpg' %}" alt="">
+						<h2>نام و نام خانوداگی</h2>
+						<h3>برنامه نویس</h3>
+					</div>
+				</div>
+				<!-- single member -->
+				<div class="col-sm-4">
+					<div class="member">
+						<img src="{% static 'pics/team/3.jpg' %}" alt="">
+						<h2>نام و نام خانوداگی</h2>
+						<h3>طراح گرافیک</h3>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Team Section end-->
+
+
+	<!-- Promotion section -->
+	<div class="promotion-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-9">
+					<h2>آماده اید برای دریافت بروزترین خبر ها؟</h2>
+					<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</p>
+				</div>
+				<div class="col-md-3">
+					<div class="promo-btn-area">
+						<a href="" class="site-btn btn-2">بیشتر</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Promotion section end-->
+
+    <!-- ======= Blog Section ======= -->
+    {% include 'website/widgets/recent-posts.html' %}
+    <!-- End Blog Section -->
+
+	{% endblock %}
+	<!-- </body> -->
+	
+	<!-- <extra js>-->
+	{% block extra_js %}
+	{% endblock %}

@@ -12,7 +12,7 @@ from blog.models import Post
 
 class IndexView(ListView):
     model = Team
-    template_name = "index/index.html"
+    template_name = "website/index.html"
     context_object_name = "teams"
 
     def get_queryset(self):
@@ -31,7 +31,7 @@ class IndexView(ListView):
 
 class CreateTeam(CreateView):
     model = Team
-    template_name = "index/register.html"
+    template_name = "website/register.html"
     success_url = reverse_lazy("website:index")
     # form_class = CreateContactForm
     fields = [
@@ -71,7 +71,7 @@ class CreateTeam(CreateView):
 
 class ContactView(CreateView):
     model = Contact
-    template_name = "index/index.html"
+    template_name = "website/contact.html"
     success_url = reverse_lazy("website:index")
     # form_class = CreateContactForm
     fields = [
@@ -85,10 +85,22 @@ class ContactView(CreateView):
         return super().form_valid(form)
 
 class TermsView(ListView):
+
     model = Team
-    template_name = "index/terms.html"
+    template_name = "website/terms.html"
     context_object_name = "teams"
 
     def get_queryset(self):
         # return all the Team objects
         return self.model.objects.all()
+    
+class ServicesView(ListView):
+
+    model = Team
+    template_name = "website/services.html"
+    context_object_name = "teams"
+
+    def get_queryset(self):
+        # return all the Team objects
+        return self.model.objects.all()
+    

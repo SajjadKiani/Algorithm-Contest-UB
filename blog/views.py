@@ -77,7 +77,7 @@ class BlogDetail(ListView):
     template_name = "blog/blog-details.html"
     context_object_name = "comments"
 
-    def get_queryset(self, request):
+    def get_queryset(self):
         # return all the comment objects from a specified post
         post_id = self.kwargs["pk"]
         post = Post.objects.get(id=post_id)
