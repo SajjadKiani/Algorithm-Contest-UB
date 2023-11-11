@@ -7,8 +7,8 @@ from .models import Team, Contact
 class TeamAdmin(admin.ModelAdmin):
     date_hierarchy = "created_date"
     empty_value_display = "-"
-    list_display = ("team_name", "university", "language", "created_date")
-    search_fields = ("team_name", "university", "language")
+    list_display = ("team_name", "language", "created_date")
+    search_fields = ("team_name", "language")
 
 
 

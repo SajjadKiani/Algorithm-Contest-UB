@@ -3,6 +3,8 @@ from django.views.generic import (
     CreateView,
 )
 from django.urls import reverse_lazy
+from django.contrib.messages.views import SuccessMessageMixin
+
 from .models import Contact, Team
 from blog.models import Post
 
@@ -29,11 +31,11 @@ class IndexView(ListView):
         )
         return context
 
-class CreateTeam(CreateView):
+class CreateTeam(SuccessMessageMixin, CreateView):
     model = Team
     template_name = "website/register.html"
     success_url = reverse_lazy("website:index")
-    # form_class = CreateContactForm
+    
     fields = [
         "team_name",
         "university",
@@ -64,7 +66,7 @@ class CreateTeam(CreateView):
         "student_number3",
         "agree",
     ]
-
+    success_message = ".تیم شما با موفقیت ثبت شد. لطفا برای پرداخت هزینه ورودی به اطلاعیه ها مراجعه کنید "
     def form_valid(self, form):
         return super().form_valid(form)
 

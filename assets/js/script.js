@@ -267,3 +267,22 @@ function progressCircle() {
 	progressCircle();
 
 })(jQuery);
+
+// pop up
+
+function submitForm(event) {
+	event.preventDefault(); // Prevent form submission
+  
+	// Perform form submission logic here (e.g., AJAX request, data processing)
+  
+	// Show the pop-up message
+	showPopup();
+  }
+  
+  function showPopup() {
+	document.getElementById('popup').style.display = 'block';
+  }
+  
+  function hidePopup() {
+	document.getElementById('popup').style.display = 'none';
+  }

@@ -12,6 +12,8 @@
 {% block content %}
 
 
+
+
 <!-- Header section -->
 <header class="header-section">
 	<div class="logo">
@@ -28,18 +30,29 @@
 			<li class="active"><a href="{% url 'website:index' %}">صفحه نخست</a></li>
 		</ul>
 	</nav>
+
 </header>
 <!-- Header section end -->
 
 
 <!-- Intro Section -->
 <div class="hero-section">
+
 	<div class="hero-content">
 		<div class="hero-center">
 			<img src="{% static 'pics/big-logo.png' %}" alt="">
+			{% if messages %}
+			{% for message in messages %}
+				<div class="text-center alert alert-{{ message.tags }}">
+					{{ message|safe }}
+				</div>
+			{% endfor %}
+			{% endif %}
 			<p>اولین دوره‌ی مسابقات الگوریتمی</p>
+
 		</div>
 	</div>
+
 	<!-- slider -->
 	<div id="hero-slider" class="owl-carousel">
 		<div class="item  hero-item" data-bg="{% static 'pics/01.jpg' %}"></div>
@@ -280,35 +293,35 @@
 						</div>
 					</div>
 					<!-- single testimonial mmd javad zare-->
-					<div class="testimonial" style="direction: rtl;  display: flex;
+					<div class=" testimonial" style="direction: rtl;  display: flex;
 					flex-direction: column;
 					align-items: center;
 					text-align: center;">
 
-						<img src="{% static 'pics/team/123.jpg' %}" alt="">
-						<div class="client-info" style="margin-top: 10px;">
-							<div class="client-name">
-								<h2>محمدجواد زارع</h2>
-								<p>مسئول کمیته تولید محتوا و فضای مجازی</p>
+								<img src="{% static 'pics/team/123.jpg' %}" alt="">
+								<div class="client-info" style="margin-top: 10px;">
+									<div class="client-name">
+										<h2>محمدجواد زارع</h2>
+										<p>مسئول کمیته تولید محتوا و فضای مجازی</p>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-</div>
-<!-- Testimonial section end-->
+		<!-- Testimonial section end-->
 
 
 
-<!-- ======= Blog Section ======= -->
-{% include 'website/widgets/recent-posts.html' %}
-<!-- End Blog Section -->
+		<!-- ======= Blog Section ======= -->
+		{% include 'website/widgets/recent-posts.html' %}
+		<!-- End Blog Section -->
 
-{% endblock %}
-<!-- </body> -->
+		{% endblock %}
+		<!-- </body> -->
 
-<!-- <extra js>-->
-{% block extra_js %}
-{% endblock %}
+		<!-- <extra js>-->
+		{% block extra_js %}
+		{% endblock %}

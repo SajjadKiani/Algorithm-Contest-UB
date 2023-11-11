@@ -31,10 +31,10 @@
             background-color: #f2f2f2;
             font-family: Arial, sans-serif;
             margin: 0;
-            
+
             padding: 20px;
         }
-    
+
         .signup-container {
             display: flex;
             justify-content: center;
@@ -43,7 +43,7 @@
             margin-top: 3300px;
             margin-bottom: 150px;
         }
-    
+
         .signup-form {
             border: 1px solid #ccc;
             background-color: #fff;
@@ -53,16 +53,18 @@
             max-width: 400px;
             width: 100%;
         }
-    
+
         .signup-form h2 {
             text-align: center;
             margin-bottom: 30px;
         }
+
         .signup-form h4 {
             text-align: right;
             margin-bottom: 20px;
             margin-top: 30px;
         }
+
         .signup-form input[type="text"],
         .signup-form input[type="email"],
         .signup-form input[type="password"] {
@@ -73,7 +75,7 @@
             border-radius: 3px;
             font-size: 16px;
         }
-    
+
         .signup-form button {
             width: 100%;
             padding: 10px;
@@ -84,7 +86,7 @@
             font-size: 16px;
             cursor: pointer;
         }
-    
+
         .signup-form button:hover {
             background-color: #2be6ab;
         }
@@ -93,6 +95,7 @@
 </head>
 
 <body>
+
     <!-- Header section -->
     <header class="header-section">
         <div class="logo">
@@ -112,14 +115,20 @@
     </header>
     <!-- Header section end -->
     <div class="main">
-
+        {% if messages %}
+        {% for message in messages %}
+            <div class="text-center alert alert-{{ message.tags }}">
+                {{ message|safe }}
+            </div>
+        {% endfor %}
+    {% endif %}
         <!-- Sign up form -->
         <section class="signup">
             <div class="container">
                 <div class="signup-container">
                     <div class="signup-form">
                         <h2 class="form-title">شرکت در مسابقه</h2>
-                        <form method="POST" class="register-form">
+                        <form method="POST" action="{% url 'website:register' %}" class="register-form">
 
                             {% csrf_token %}
                             <!-- team_name -->
@@ -207,7 +216,7 @@
                                 <h5>ایمیل</h5>
                                 <div class="form-group">
                                     <label><i class="zmdi zmdi-email"></i></label>
-                                    <input type="email" name="email2" placeholder="Your Email" required />
+                                    <input type="email" name="email2" placeholder="ایمیل" required />
                                 </div>
                                 <h5>رشته تحصیلی</h5>
                                 <div class="form-group">
@@ -248,7 +257,7 @@
                                 <h5>ایمیل</h5>
                                 <div class="form-group">
                                     <label><i class="zmdi zmdi-email"></i></label>
-                                    <input type="email" name="email3" placeholder="Your Email" />
+                                    <input type="email" name="email3" placeholder="ایمیل" />
                                 </div>
                                 <h5>رشته تحصیلی</h5>
                                 <div class="form-group">
@@ -264,14 +273,17 @@
                             <div class="form-group" style="margin-top: 30px;">
                                 <input type="checkbox" name="agree" id="agree-term" class="agree-term" />
                                 <label for="agree-term" class="label-agree-term">
-                                    <span><span></span></span> تمامی <a href="{% url 'website:terms' %}" class="term-service">قوانین و شرایط
+                                    <span><span></span></span> تمامی <a href="{% url 'website:terms' %}"
+                                        class="term-service">قوانین و شرایط
                                         استفاده</a> را می‌پذیرم.
                                 </label>
                             </div>
                             <div class="form-group form-button">
-                                <button type="submit" class="form-submit" id="submit-button" disabled>ثبت تیم</button>
+                                <button type="submit" class="form-submit">ثبت تیم</button>
                             </div>
+                        
                         </form>
+                        
                         <div class="signup-image">
                             <figure><img src="{% static 'pics/signup-image.jpg' %}" alt="sing up image"></figure>
                         </div>
