@@ -1,2 +1,2 @@
-# competition-registration
- cs
+# Algorithm-Contest-UB
+ a site for contest
