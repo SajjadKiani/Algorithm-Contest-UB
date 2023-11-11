@@ -94,10 +94,10 @@ class TermsView(ListView):
         # return all the Team objects
         return self.model.objects.all()
     
-class ServicesView(ListView):
+class CountdownView(ListView):
 
     model = Team
-    template_name = "website/services.html"
+    template_name = "website/countdown.html"
     context_object_name = "teams"
 
     def get_queryset(self):

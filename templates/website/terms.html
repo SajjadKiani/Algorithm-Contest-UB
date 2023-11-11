@@ -1,12 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>terms and services</title>
-</head>
-<body>
-    
-</body>
-</html>
+{% extends 'base.html' %}
+{% load static %}
+
+<!-- <title>  -->
+{% block title %} ub-csc contest {% endblock %}
+<!-- <extra css>-->
+{% block extra_css %}{% endblock %}
+
+<!-- <body> -->
+
+{% block content %}
+
+<!-- Header section -->
+<header class="header-section">
+	<div class="logo">
+		<img src="{% static 'pics/logo.png' %}" alt=""><!-- Logo -->
+	</div>
+	<!-- Navigation -->
+	<div class="responsive"><i class="fa fa-bars"></i></div>
+	<nav>
+		<ul class="menu-list">
+            <li class="active"><a href="{% url 'website:terms' %}">شرایط و قوانین</a></li>
+			<li><a href="{% url 'website:contact' %}">تماس با ما</a></li>
+			<li><a href="{% url 'website:countdown' %}">زمانبندی</a></li>
+			<li><a href="{% url 'blog:index' %}">بلاگ</a></li>
+			<li><a href="{% url 'website:register' %}">ثبت نام</a></li>
+			<li><a href="{% url 'website:index' %}">صفحه نخست</a></li>
+		</ul>
+	</nav>
+</header>
+<!-- Header section end -->
+
+{% endblock %}
+<!-- </body> -->
+
+<!-- <extra js>-->
+{% block extra_js %}
+{% endblock %}

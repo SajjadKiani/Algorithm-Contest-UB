@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
-
+{% load jalali_filters %}
 <!-- <title>  -->
 {% block title %}{{post.title}}{% endblock %}
 <!-- <extra css>-->
@@ -20,10 +20,11 @@
 		<div class="responsive"><i class="fa fa-bars"></i></div>
 		<nav>
 			<ul class="menu-list">
-				<li><a href="{% url 'website:index' %}">صفحه نخست</a></li>
-				<li><a href="{% url 'website:services' %}">سرویس ها</a></li>
-				<li class="active"><a href="{% url 'blog:index' %}">بلاگ</a></li>
 				<li><a href="{% url 'website:contact' %}">تماس با ما</a></li>
+				<li><a href="{% url 'website:countdown' %}">زمانبندی</a></li>
+				<li class="active"><a href="{% url 'blog:index' %}">بلاگ</a></li>
+				<li><a href="{% url 'website:register' %}">ثبت نام</a></li>
+				<li><a href="{% url 'website:index' %}">صفحه نخست</a></li>
 			</ul>
 		</nav>
 	</header>
@@ -50,29 +51,28 @@
 	<div class="page-section spad">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-8 col-sm-7 blog-posts">
+				<div class="col-md-12 col-sm-7 blog-posts">
 					<!-- Single Post -->
 					<div class="single-post">
 						<div class="post-thumbnail">
-							<img src="{% static 'pics/blog/blog-1.jpg' %}" alt="">
+							<img src="{% static 'pics/blog/bg01.jpg' %}" alt="">
 							<div class="post-date">
-								<h2>03</h2>
-								<h3>دی 97</h3>
+								<h2>{{post.created_date|jalali_day}}</h2>
+								<h3>{{post.created_date|jalali_month_name}} {{post.created_date|jalali_year}}</h3>
 							</div>
 						</div>
 						<div class="post-content">
-							<h2 class="post-title">عنوان پست بلاگ</h2>
-							<div class="post-meta">
+							<h2 class="post-title">{{post.title}}</h2>
+							<!-- <div class="post-meta">
 								<a href="">نام و نام خانوادگی</a>
 								<a href="">دسته بندی</a>
 								<a href="">2 کامنت</a>
+							</div> -->
+							{{post.summary}}
+							{{post.content|safe}}
 							</div>
-							<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد</p>
-							<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد</p>
-							<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد</p>
-						</div>
 						<!-- Post Author -->
-						<div class="author">
+						<!-- <div class="author">
 							<div class="avatar">
 								<img src="{% static 'pics/avatar/03.jpg' %}" alt="">
 							</div>
@@ -80,113 +80,11 @@
 								<h2>نام و نام خانوادگی<span> سمت</span></h2>
 								<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد</p>
 							</div>
-						</div>
-						<!-- Post Comments -->
-						<div class="comments">
-							<h2>کامنتها (2)</h2>
-							<ul class="comment-list">
-								<li>
-									<div class="avatar">
-										<img src="{% static 'pics/avatar/01.jpg' %}" alt="">
-									</div>
-									<div class="commetn-text">
-										<h3>نام | تاریخ | تعداد پاسخ</h3>
-										<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است </p>
-									</div>
-								</li>
-								<li>
-									<div class="avatar">
-										<img src="{% static 'pics/avatar/02.jpg' %}" alt="">
-									</div>
-									<div class="commetn-text">
-										<h3>نام | تاریخ | تعداد پاسخ</h3>
-										<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است </p>
-									</div>
-								</li>
-							</ul>
-						</div>
-						<!-- Commert Form -->
-						<div class="row">
-							<div class="col-md-9 comment-from">
-								<h2>نطر خود را با ما در میان بگذارید</h2>
-								<form class="form-class">
-									<div class="row">
-										<div class="col-sm-6">
-											<input type="text" name="name" placeholder="نام شما">
-										</div>
-										<div class="col-sm-6">
-											<input type="text" name="email" placeholder="پست الکترونیک">
-										</div>
-										<div class="col-sm-12">
-											<input type="text" name="subject" placeholder="موضوع">
-											<textarea name="message" placeholder="پیام"></textarea>
-											<button class="site-btn" type="submit">ارسال</button>
-										</div>
-									</div>
-								</form>
-							</div>
-						</div>
+						</div> -->
+						
 					</div>
 				</div>
-				<!-- Sidebar area -->
-				<!-- Sidebar area -->
-				<div class="col-md-4 col-sm-5 sidebar">
-					<!-- Single widget -->
-					<div class="widget-item">
-						<form action="#" class="search-form">
-							<input type="text" placeholder="جستجو کنید">
-							<button class="search-btn"><i class="flaticon-026-search"></i></button>
-						</form>
-					</div>
-					<!-- Single widget -->
-					<div class="widget-item">
-						<h2 class="widget-title">دسته بندی</h2>
-						<ul>
-							<li><a href="#">طراحی</a></li>
-							<li><a href="#">آزمایشگاهی</a></li>
-							<li><a href="#">کالا پزشکی</a></li>
-							<li><a href="#">خبر</a></li>
-						</ul>
-					</div>
-					<!-- Single widget -->
-					<div class="widget-item">
-						<h2 class="widget-title">Instagram</h2>
-						<ul class="instagram">
-							<li><img src="{% static 'pics/instagram/1.jpg' %}" alt=""></li>
-							<li><img src="{% static 'pics/instagram/2.jpg' %}" alt=""></li>
-							<li><img src="{% static 'pics/instagram/3.jpg' %}" alt=""></li>
-							<li><img src="{% static 'pics/instagram/4.jpg' %}" alt=""></li>
-							<li><img src="{% static 'pics/instagram/5.jpg' %}" alt=""></li>
-							<li><img src="{% static 'pics/instagram/6.jpg' %}" alt=""></li>
-						</ul>
-					</div>
-					<!-- Single widget -->
-					<div class="widget-item">
-						<h2 class="widget-title">برچسب ها</h2>
-						<ul class="tag">
-							<li><a href="">برندینگ</a></li>
-							<li><a href="">آزمایشگاه</a></li>
-							<li><a href="">ویدئو</a></li>
-							<li><a href="">طراحی</a></li>
-							<li><a href="">الهام بخش</a></li>
-						</ul>
-					</div>
-					<!-- Single widget -->
-					<div class="widget-item">
-						<h2 class="widget-title">نقل قول ها</h2>
-						<div class="quote">
-							<span class="quotation">‘​‌‘​‌</span>
-							<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است</p>
-						</div>
-					</div>
-					<!-- Single widget -->
-					<div class="widget-item">
-						<h2 class="widget-title">افزودن</h2>
-						<div class="add">
-							<a href=""><img src="{% static 'pics/add.jpg' %}" alt=""></a>
-						</div>
-					</div>
-				</div>
+
 			</div>
 		</div>
 	</div>

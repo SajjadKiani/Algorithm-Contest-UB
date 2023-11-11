@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
-
+{% load thumbnail %}
+{% load jalali_filters %}
 <!-- <title>  -->
 {% block title %}Blog{% endblock %}
 <!-- <extra css>-->
@@ -11,180 +12,145 @@
 {% block content %}
 
 
-	<!-- Header section -->
-	<header class="header-section">
-		<div class="logo">
-			<img src="{% static 'pics/logo.png' %}" alt=""><!-- Logo -->
-		</div>
-		<!-- Navigation -->
-		<div class="responsive"><i class="fa fa-bars"></i></div>
-		<nav>
-			<ul class="menu-list">
-				<li><a href="{% url 'website:index' %}">صفحه نخست</a></li>
-				<li><a href="{% url 'website:services' %}">سرویس ها</a></li>
-				<li class="active"><a href="{% url 'blog:index' %}">بلاگ</a></li>
-				<li><a href="{% url 'website:contact' %}">تماس با ما</a></li>
-			</ul>
-		</nav>
-	</header>
-	<!-- Header section end -->
+<!-- Header section -->
+<header class="header-section">
+	<div class="logo">
+		<img src="{% static 'pics/logo.png' %}" alt=""><!-- Logo -->
+	</div>
+	<!-- Navigation -->
+	<div class="responsive"><i class="fa fa-bars"></i></div>
+	<nav>
+		<ul class="menu-list">
+			<li><a href="{% url 'website:contact' %}">تماس با ما</a></li>
+			<li><a href="{% url 'website:countdown' %}">زمانبندی</a></li>
+			<li class="active"><a href="{% url 'blog:index' %}">بلاگ</a></li>
+			<li><a href="{% url 'website:register' %}">ثبت نام</a></li>
+			<li><a href="{% url 'website:index' %}">صفحه نخست</a></li>
+		</ul>
+	</nav>
+</header>
+<!-- Header section end -->
 
 
-	<!-- Page header -->
-	<div class="page-top-section">
-		<div class="overlay"></div>
-		<div class="container text-right">
-			<div class="page-info">
-				<h2>بلاگ</h2>
-				<div class="page-links">
-					<a href="#">صفحه نخست</a>
-					<span>بلاگ</span>
-				</div>
+<!-- Page header -->
+<div class="page-top-section">
+	<div class="overlay"></div>
+	<div class="container text-right">
+		<div class="page-info">
+			<h2>بلاگ</h2>
+			<div class="page-links">
+				<a href="#">صفحه نخست</a>
+				<span>بلاگ</span>
 			</div>
 		</div>
 	</div>
-	<!-- Page header end-->
+</div>
+<!-- Page header end-->
 
 
-	<!-- page section -->
-	<div class="page-section spad">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-8 col-sm-7 blog-posts">
-					<!-- Post item -->
-					<div class="post-item">
-						<div class="post-thumbnail">
-							<img src="{% static 'pics/blog/blog-2.jpg' %}" alt="">
-							<div class="post-date">
-								<h2>03</h2>
-								<h3>مهر 97</h3>
-							</div>
-						</div>
-						<div class="post-content">
-							<h2 class="post-title">یک نمونه پست بلاگ</h2>
-							<div class="post-meta">
-								<a href="">نام و نام خانوادگی</a>
-								<a href="">نوع دسته بندی</a>
-								<a href="">2 کامنت</a>
-							</div>
-							<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد</p>
-							<a href="blog-post.html" class="read-more">بیشتر بخوانید</a>
+<!-- page section -->
+<div class="page-section spad">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8 col-sm-7 blog-posts">
+				<!-- Post item -->
+				{% for post in posts %}
+				<div class="post-item">
+					<div class="post-thumbnail">
+						{% thumbnail post.image "1280x720" crop="center" as im %}
+						<img src="{{ im.url }}" max-width="{{im.width}}" max-height="{{im.height}}" alt=""
+							class="img-fluid">
+						{% endthumbnail %}
+						<div class="post-date">
+							<h2>{{post.created_date|jalali_day}}</h2>
+							<h3>{{post.created_date|jalali_month_name}} {{post.created_date|jalali_year}}</h3>
 						</div>
 					</div>
-					<!-- Post item -->
-					<div class="post-item">
-						<div class="post-thumbnail">
-							<img src="{% static 'pics/blog/blog-1.jpg' %}" alt="">
-							<div class="post-date">
-								<h2>03</h2>
-								<h3>دی 97</h3>
-							</div>
-						</div>
-						<div class="post-content">
-							<h2 class="post-title">یک نمونه پست بلاگ</h2>
-							<div class="post-meta">
-								<a href="">نام و نام خانوادگی</a>
-								<a href="">نوع دسته بندی</a>
-								<a href="">2 کامنت</a>
-							</div>
-							<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد</p>
-							<a href="blog-post.html" class="read-more">بیشتر بخوانید</a>
-						</div>
+					<div class="post-content">
+						<a href="{% url 'blog:detail' pk=post.id %}">
+							<h2 class="post-title">{{post.title}}</h2>
+						</a>
+
+						<p>{{post.summary}}</p>
+						<a href="{% url 'blog:detail' pk=post.id %}" class="read-more">بیشتر بخوانید</a>
 					</div>
-					<!-- Post item -->
-					<div class="post-item">
-						<div class="post-thumbnail">
-							<img src="{% static 'pics/blog/blog-3.jpg' %}" alt="">
-							<div class="post-date">
-								<h2>03</h2>
-								<h3>6 اسفند</h3>
-							</div>
-						</div>
-						<div class="post-content">
-							<h2 class="post-title">یک نمونه پست بلاگ</h2>
-							<div class="post-meta">
-								<a href="">نام و نام خانوادگی</a>
-								<a href="">نوع دسته بندی</a>
-								<a href="">2 کامنت</a>
-							</div>
-							<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد</p>
-							<a href="blog-post.html" class="read-more">بیشتر بخوانید</a>
-						</div>
-					</div>
-					<!-- Pagination -->
-					<div class="page-pagination">
+				</div>
+				{% endfor %}
+				<!-- Pagination -->
+
+				<!-- <div class="page-pagination">
 						<a class="active" href="">01.</a>
 						<a href="">02.</a>
 						<a href="">03.</a>
-					</div>
+					</div> -->
+
+
+				{% if page_obj.has_other_pages %}
+				<!-- pagination -->
+				<div class="page-pagination">
+					<ul>
+
+						<!-- previous and first page -->
+						{% if current_page != 1 %}
+						<a href="/blog/?page={{page_obj.previous_page_number}}">
+							
+								< 
+						</a>
+
+						{% if current_page != 2 %}
+						<a href="/blog/?page=1">
+							 First 
+						</a>
+						{% endif %}
+						{% endif %}
+						<!-- end -->
+
+						<!-- pagination numbers -->
+						{% for i in pages %}
+						{% if current_page == i %}
+						<a class="is-active" href="/blog/?page={{i}}">
+							{{i}}
+						</a>
+						{% else %}
+						<a href="/blog/?page={{i}}">
+							{{i}}
+						</a>
+						{% endif %}
+						{% endfor %}
+						<!-- end -->
+
+						<!-- next and last page -->
+						{% if page_obj.has_next %}
+						<a href="/blog/?page={{page_obj.next_page_number}}">
+							>
+						</a>
+						{% if last_page != 1 %}
+						<a href="/blog/?page={{last_page}}">
+							 Last
+						</a>
+						{% endif %}
+
+						{% endif %}
+						<!-- end -->
+
+					</ul>
 				</div>
-				<!-- Sidebar area -->
-				<div class="col-md-4 col-sm-5 sidebar">
-					<!-- Single widget -->
-					<div class="widget-item">
-						<form action="#" class="search-form">
-							<input type="text" placeholder="جستجو کنید">
-							<button class="search-btn"><i class="flaticon-026-search"></i></button>
-						</form>
-					</div>
-					<!-- Single widget -->
-					<div class="widget-item">
-						<h2 class="widget-title">دسته بندی</h2>
-						<ul>
-							<li><a href="#">طراحی</a></li>
-							<li><a href="#">آزمایشگاهی</a></li>
-							<li><a href="#">کالا پزشکی</a></li>
-							<li><a href="#">خبر</a></li>
-						</ul>
-					</div>
-					<!-- Single widget -->
-					<div class="widget-item">
-						<h2 class="widget-title">Instagram</h2>
-						<ul class="instagram">
-							<li><img src="{% static 'pics/instagram/1.jpg' %}" alt=""></li>
-							<li><img src="{% static 'pics/instagram/2.jpg' %}" alt=""></li>
-							<li><img src="{% static 'pics/instagram/3.jpg' %}" alt=""></li>
-							<li><img src="{% static 'pics/instagram/4.jpg' %}" alt=""></li>
-							<li><img src="{% static 'pics/instagram/5.jpg' %}" alt=""></li>
-							<li><img src="{% static 'pics/instagram/6.jpg' %}" alt=""></li>
-						</ul>
-					</div>
-					<!-- Single widget -->
-					<div class="widget-item">
-						<h2 class="widget-title">برچسب ها</h2>
-						<ul class="tag">
-							<li><a href="">برندینگ</a></li>
-							<li><a href="">آزمایشگاه</a></li>
-							<li><a href="">ویدئو</a></li>
-							<li><a href="">طراحی</a></li>
-							<li><a href="">الهام بخش</a></li>
-						</ul>
-					</div>
-					<!-- Single widget -->
-					<div class="widget-item">
-						<h2 class="widget-title">نقل قول ها</h2>
-						<div class="quote">
-							<span class="quotation">‘​‌‘​‌</span>
-							<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است</p>
-						</div>
-					</div>
-					<!-- Single widget -->
-					<div class="widget-item">
-						<h2 class="widget-title">افزودن</h2>
-						<div class="add">
-							<a href=""><img src="{% static 'pics/add.jpg' %}" alt=""></a>
-						</div>
-					</div>
-				</div>
+				<!-- pagination ends -->
+				</main><!-- End #main -->
+				{% endif %}
+
+
+
 			</div>
 		</div>
 	</div>
-	<!-- page section end-->
+</div>
+<!-- page section end-->
 
 
 
-	{% endblock %}
-	<!-- </body> -->
-	
-	<!-- <extra js>-->
-	{% block extra_js %}{% endblock %}
+{% endblock %}
+<!-- </body> -->
+
+<!-- <extra js>-->
+{% block extra_js %}{% endblock %}

@@ -37,7 +37,7 @@ class BlogList(ListView):
             posts = posts.filter(tags__name__in=[self.kwargs["tag_name"]])
         return posts
 
-    paginate_by = 6
+    paginate_by = 4
 
     def get_context_data(self, **kwargs):
         context = super(BlogList, self).get_context_data(**kwargs)

@@ -50,3 +50,4 @@ tzdata==2023.3
 urllib3==1.26.15
 webencodings==0.5.1
 Willow==1.4.1
+jdatetime

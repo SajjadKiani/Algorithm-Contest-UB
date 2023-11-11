@@ -4,7 +4,7 @@ from .views import (
     ContactView,
     CreateTeam,
     TermsView,
-    ServicesView,
+    CountdownView,
 )
 
 app_name = "website"
@@ -14,5 +14,5 @@ urlpatterns = [
     path("contact", ContactView.as_view(), name="contact"),
     path("register", CreateTeam.as_view(), name="register"),
     path("terms", TermsView.as_view(), name="terms"),
-    path("services", ServicesView.as_view(), name="services"),
+    path("countdown", CountdownView.as_view(), name="countdown"),
 ]

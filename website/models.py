@@ -6,7 +6,7 @@ from django.core.validators import RegexValidator
 
 class Team(models.Model):
     team_name = models.CharField(max_length=255, verbose_name="نام تیم")
-    university = models.CharField(max_length=255, verbose_name="نام دانشگاه")
+    university = models.CharField(max_length=255, verbose_name="نام دانشگاه", null=True, blank=True)
     language = models.CharField(max_length=120, verbose_name="زبان برنامه نویسیس")
     agree = models.BooleanField(default=False, verbose_name="موافقت نامه")
     GENDER_CHOICES = [
@@ -21,8 +21,8 @@ class Team(models.Model):
         validators=[RegexValidator(r'^\d{11}$', 'Enter a valid 11-digit phone number.')]
     )
     email1 = models.CharField(max_length=255)
-    education1 = models.CharField(max_length=255)
-    student_number1 = models.CharField(max_length=20)
+    education1 = models.CharField(max_length=255, null=True, blank=True)
+    student_number1 = models.CharField(max_length=20, null=True, blank=True)
 
     first_name2 = models.CharField(max_length=255)
     last_name2 = models.CharField(max_length=255)
@@ -32,8 +32,8 @@ class Team(models.Model):
         validators=[RegexValidator(r'^\d{11}$', 'Enter a valid 11-digit phone number.')]
     )
     email2 = models.CharField(max_length=255)
-    education2 = models.CharField(max_length=255)
-    student_number2 = models.CharField(max_length=20)
+    education2 = models.CharField(max_length=255, null=True, blank=True)
+    student_number2 = models.CharField(max_length=20, null=True, blank=True)
 
     first_name3 = models.CharField(max_length=255, null=True, blank=True)
     last_name3 = models.CharField(max_length=255, null=True, blank=True)
@@ -48,7 +48,7 @@ class Team(models.Model):
     updated_date = models.DateTimeField(auto_now=True)
 
     class Meta:
-        ordering = ["-created_date", "team_name", "university", "language"]
+        ordering = ["-created_date", "team_name", "language"]
         verbose_name = "تیم"
         verbose_name_plural = "تیم ها"
     def __str__(self):

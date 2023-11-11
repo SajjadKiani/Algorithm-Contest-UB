@@ -7,6 +7,7 @@ from ckeditor_uploader.fields import RichTextUploadingField
 from django.core.exceptions import ValidationError
 from blog.formatChecker import ContentTypeRestrictedFileField
 
+
 # Create your models here.
 
 

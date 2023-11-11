@@ -7,23 +7,116 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sign Up Form by Colorlib</title>
+    <title>ثبت نام در مسابقه</title>
 
     <!-- Font Icon -->
     <link rel="stylesheet" href="{% static 'fonts/material-icon/css/material-design-iconic-font.min.css' %}">
 
     <!-- Main css -->
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <!-- Favicon -->
+    <link href="{% static 'pics/favicon.ico' %}" rel="shortcut icon" />
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/flaticon.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f2f2f2;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            
+            padding: 20px;
+        }
+    
+        .signup-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            margin-top: 3300px;
+            margin-bottom: 150px;
+        }
+    
+        .signup-form {
+            border: 1px solid #ccc;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 3px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+    
+        .signup-form h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .signup-form h4 {
+            text-align: right;
+            margin-bottom: 20px;
+            margin-top: 30px;
+        }
+        .signup-form input[type="text"],
+        .signup-form input[type="email"],
+        .signup-form input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            font-size: 16px;
+        }
+    
+        .signup-form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #2be6ab;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    
+        .signup-form button:hover {
+            background-color: #2be6ab;
+        }
+    </style>
+
 </head>
 
 <body>
-
+    <!-- Header section -->
+    <header class="header-section">
+        <div class="logo">
+            <img src="{% static 'pics/logo.png' %}" alt=""><!-- Logo -->
+        </div>
+        <!-- Navigation -->
+        <div class="responsive"><i class="fa fa-bars"></i></div>
+        <nav>
+            <ul class="menu-list">
+                <li><a href="{% url 'website:contact' %}">تماس با ما</a></li>
+                <li><a href="{% url 'website:countdown' %}">زمانبندی</a></li>
+                <li><a href="{% url 'blog:index' %}">بلاگ</a></li>
+                <li class="active"><a href="{% url 'website:register' %}">ثبت نام</a></li>
+                <li><a href="{% url 'website:index' %}">صفحه نخست</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- Header section end -->
     <div class="main">
 
         <!-- Sign up form -->
         <section class="signup">
             <div class="container">
-                <div class="signup-content">
+                <div class="signup-container">
                     <div class="signup-form">
                         <h2 class="form-title">شرکت در مسابقه</h2>
                         <form method="POST" class="register-form">
@@ -47,7 +140,7 @@
                             </div>
                             <!-- person 1 -->
                             <h4>مشخصات شرکت کننده اول</h4>
-                            <div>
+                            <div class="signup-form">
                                 <h5>نام</h5>
                                 <div class="form-group">
                                     <label><i class="zmdi zmdi-account material-icons-name"></i></label>
@@ -68,7 +161,7 @@
                                 <h5>شماره موبایل</h5>
                                 <div class="form-group">
                                     <label><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                    <input type="number" name="phone1" placeholder="شماره موبایل" required />
+                                    <input type="text" name="phone1" placeholder="شماره موبایل" required />
                                 </div>
                                 <h5>ایمیل</h5>
                                 <div class="form-group">
@@ -78,17 +171,17 @@
                                 <h5>رشته تحصیلی</h5>
                                 <div class="form-group">
                                     <label><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                    <input type="text" name="education1" placeholder="رشته تحصیلی"  />
+                                    <input type="text" name="education1" placeholder="رشته تحصیلی" />
                                 </div>
                                 <h5>شماره دانشجویی</h5>
                                 <div class="form-group">
                                     <label><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                    <input type="number" name="student_number1" placeholder="شماره دانشجویی"  />
+                                    <input type="text" name="student_number1" placeholder="شماره دانشجویی" />
                                 </div>
                             </div>
                             <!-- person 2 -->
                             <h4>مشخصات شرکت کننده دوم</h4>
-                            <div>
+                            <div class="signup-form">
                                 <h5>نام</h5>
                                 <div class="form-group">
                                     <label><i class="zmdi zmdi-account material-icons-name"></i></label>
@@ -109,7 +202,7 @@
                                 <h5>شماره موبایل</h5>
                                 <div class="form-group">
                                     <label><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                    <input type="number" name="phone2" placeholder="شماره موبایل" required />
+                                    <input type="text" name="phone2" placeholder="شماره موبایل" required />
                                 </div>
                                 <h5>ایمیل</h5>
                                 <div class="form-group">
@@ -119,26 +212,26 @@
                                 <h5>رشته تحصیلی</h5>
                                 <div class="form-group">
                                     <label><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                    <input type="text" name="education2" placeholder="رشته تحصیلی"  />
+                                    <input type="text" name="education2" placeholder="رشته تحصیلی" />
                                 </div>
                                 <h5>شماره دانشجویی</h5>
                                 <div class="form-group">
                                     <label><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                    <input type="number" name="student_number2" placeholder="شماره دانشجویی" />
+                                    <input type="text" name="student_number2" placeholder="شماره دانشجویی" />
                                 </div>
                             </div>
                             <!-- person 3 -->
                             <h4>مشخصات شرکت کننده سوم</h4>
-                            <div>
+                            <div class="signup-form">
                                 <h5>نام</h5>
                                 <div class="form-group">
                                     <label><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                    <input type="text" name="first_name3" placeholder="نام"  />
+                                    <input type="text" name="first_name3" placeholder="نام" />
                                 </div>
                                 <h5>نام خانوادگی</h5>
                                 <div class="form-group">
                                     <label><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                    <input type="text" name="last_name3" placeholder="نام خانوادگی"  />
+                                    <input type="text" name="last_name3" placeholder="نام خانوادگی" />
                                 </div>
                                 <h5>جنسیت</h5>
                                 <div class="form-group">
@@ -150,7 +243,7 @@
                                 <h5>شماره موبایل</h5>
                                 <div class="form-group">
                                     <label><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                    <input type="number" name="phone3" placeholder="شماره موبایل" />
+                                    <input type="text" name="phone3" placeholder="شماره موبایل" />
                                 </div>
                                 <h5>ایمیل</h5>
                                 <div class="form-group">
@@ -165,23 +258,25 @@
                                 <h5>شماره دانشجویی</h5>
                                 <div class="form-group">
                                     <label><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                    <input type="number" name="student_number3" placeholder="شماره دانشجویی" />
+                                    <input type="text" name="student_number3" placeholder="شماره دانشجویی" />
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group" style="margin-top: 30px;">
                                 <input type="checkbox" name="agree" id="agree-term" class="agree-term" />
                                 <label for="agree-term" class="label-agree-term">
-                                    <span><span></span></span> تمامی <a href="#" class="term-service">قوانین و شرایط استفاده</a> را می‌پذیرم.
+                                    <span><span></span></span> تمامی <a href="{% url 'website:terms' %}" class="term-service">قوانین و شرایط
+                                        استفاده</a> را می‌پذیرم.
                                 </label>
                             </div>
                             <div class="form-group form-button">
                                 <button type="submit" class="form-submit" id="submit-button" disabled>ثبت تیم</button>
                             </div>
                         </form>
+                        <div class="signup-image">
+                            <figure><img src="{% static 'pics/signup-image.jpg' %}" alt="sing up image"></figure>
+                        </div>
                     </div>
-                    <div class="signup-image">
-                        <figure><img src="{% static 'images/signup-image.jpg' %}" alt="sing up image"></figure>
-                    </div>
+
                 </div>
             </div>
         </section>
@@ -189,17 +284,34 @@
 
     </div>
 
+
+
     <!-- JS -->
     <script>
         const agreeTermCheckbox = document.getElementById('agree-term');
         const submitButton = document.getElementById('submit-button');
-    
-        agreeTermCheckbox.addEventListener('change', function() {
+
+        agreeTermCheckbox.addEventListener('change', function () {
             submitButton.disabled = !this.checked;
         });
     </script>
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="js/main.js"></script>
+    <script src="{% static 'js/jquery-2.1.4.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/magnific-popup.min.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/circle-progress.min.js' %}"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0YyDTa0qqOjIerob2VTIwo_XVMhrruxo"></script>
+    <script src="{% static 'js/map.js' %}"></script>
+    <script src="{% static 'js/script.js' %}"></script>
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+
+<!-- Footer section -->
+<!-- <footer class="footer-section">
+    <h2>2023 &copy; All rights reserved. Developed by <a href="https://github.com/mohamadjavadzare"
+            target="_blank">Mohamad Javad Zare</a></h2>
+</footer> -->
+<!-- Footer section end -->
 
 </html>
