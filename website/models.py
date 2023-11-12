@@ -13,6 +13,12 @@ class Team(models.Model):
         ('M', 'مرد'),
         ('F', 'زن'),
     ]
+    EDUCATION_CHOICES = [
+        ('1', 'دانش آموز'),
+        ('2', 'دانشجو'),
+        ('3', 'دانش آموخته'),
+        ('4', 'هیچکدام'),
+    ]
     first_name1 = models.CharField(max_length=255)
     last_name1 = models.CharField(max_length=255)
     gender1 = models.CharField(max_length=1, choices=GENDER_CHOICES)
@@ -21,7 +27,8 @@ class Team(models.Model):
         validators=[RegexValidator(r'^\d{11}$', 'Enter a valid 11-digit phone number.')]
     )
     email1 = models.CharField(max_length=255)
-    education1 = models.CharField(max_length=255, null=True, blank=True)
+    education1 = models.CharField(max_length=1, choices=EDUCATION_CHOICES, null=True, blank=True)
+    major1 = models.CharField(max_length=255, null=True, blank=True)
     student_number1 = models.CharField(max_length=20, null=True, blank=True)
 
     first_name2 = models.CharField(max_length=255)
@@ -32,7 +39,8 @@ class Team(models.Model):
         validators=[RegexValidator(r'^\d{11}$', 'Enter a valid 11-digit phone number.')]
     )
     email2 = models.CharField(max_length=255)
-    education2 = models.CharField(max_length=255, null=True, blank=True)
+    education2 = models.CharField(max_length=1, choices=EDUCATION_CHOICES, null=True, blank=True)
+    major2 = models.CharField(max_length=255, null=True, blank=True)
     student_number2 = models.CharField(max_length=20, null=True, blank=True)
 
     first_name3 = models.CharField(max_length=255, null=True, blank=True)
@@ -40,7 +48,8 @@ class Team(models.Model):
     gender3 = models.CharField(max_length=1, choices=GENDER_CHOICES, null=True, blank=True)
     phone3 = models.CharField(max_length=11, null=True, blank=True)
     email3 = models.CharField(max_length=255, null=True, blank=True)
-    education3 = models.CharField(max_length=255, null=True, blank=True)
+    education3 = models.CharField(max_length=1, choices=EDUCATION_CHOICES, null=True, blank=True)
+    major3 = models.CharField(max_length=255, null=True, blank=True)
     student_number3 = models.CharField(max_length=20, null=True, blank=True)
 
 

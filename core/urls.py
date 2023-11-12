@@ -28,6 +28,10 @@ urlpatterns = [
 
 ]
 
+# admin interface Header
+admin.site.site_header = 'UB-CSC'
+admin.site.index_title = 'Admin Panel'
+
 # serving static and media for development
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
