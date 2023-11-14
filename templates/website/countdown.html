@@ -32,11 +32,11 @@
 		<!-- Navigation -->
 		<div class="responsive"><i class="fa fa-bars"></i></div>
 		<nav>
-			<ul class="menu-list">
+			<ul class="menu-list" dir="rtl">
 				<li><a href="{% url 'website:index' %}">صفحه نخست</a></li>
 				<li><a href="{% url 'website:register' %}">ثبت نام</a></li>
 				<li><a href="{% url 'blog:index' %}">بلاگ</a></li>
-				<li class="active"><a href="{% url 'website:countdown' %}">زمانبندی</a></li>
+				<li class="active"><a href="{% url 'website:countdown' %}">زمان برگزاری</a></li>
 				<li><a href="{% url 'website:contact' %}">تماس با ما</a></li>
 			</ul>
 		</nav>
@@ -92,7 +92,7 @@
 			/*Endtime must be > current time*/
 			endtimeYear: 2023,
 			endtimeMonth: 11,
-			endtimeDate: 23,
+			endtimeDate: 30,
 			endtimeHours: 9,
 			endtimeMinutes: 0,
 			endtimeSeconds: 0,

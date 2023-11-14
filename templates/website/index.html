@@ -23,11 +23,11 @@
 	<div class="responsive"><i class="fa fa-bars"></i></div>
 	<nav>
 		<ul class="menu-list">
-			<li><a href="{% url 'website:contact' %}">تماس با ما</a></li>
-			<li><a href="{% url 'website:countdown' %}">زمانبندی</a></li>
-			<li><a href="{% url 'blog:index' %}">بلاگ</a></li>
-			<li><a href="{% url 'website:register' %}">ثبت نام</a></li>
 			<li class="active"><a href="{% url 'website:index' %}">صفحه نخست</a></li>
+			<li><a href="{% url 'website:register' %}">ثبت نام</a></li>
+			<li><a href="{% url 'blog:index' %}">بلاگ</a></li>
+			<li><a href="{% url 'website:countdown' %}">زمان برگزاری</a></li>
+			<li><a href="{% url 'website:contact' %}">تماس با ما</a></li>
 		</ul>
 	</nav>
 
@@ -43,9 +43,9 @@
 			<img src="{% static 'pics/big-logo.png' %}" alt="">
 			{% if messages %}
 			{% for message in messages %}
-				<div class="text-center alert alert-{{ message.tags }}">
-					{{ message|safe }}
-				</div>
+			<div class="text-center alert alert-{{ message.tags }}">
+				{{ message|safe }}
+			</div>
 			{% endfor %}
 			{% endif %}
 			<p>اولین دوره‌ی مسابقات الگوریتمی</p>
@@ -55,8 +55,9 @@
 
 	<!-- slider -->
 	<div id="hero-slider" class="owl-carousel">
-		<div class="item  hero-item" data-bg="{% static 'pics/01.jpg' %}"></div>
-		<div class="item  hero-item" data-bg="{% static 'pics/02.jpg' %}"></div>
+		<div class="item  hero-item" data-bg="{% static 'pics/bg3.jpg' %}"></div>
+		<!-- <div class="item  hero-item" data-bg="{% static 'pics/bg2.jpg' %}"></div> -->
+		<div class="item  hero-item" data-bg="{% static 'pics/bg1.jpg' %}"></div>
 	</div>
 </div>
 <!-- Intro Section -->
@@ -118,13 +119,16 @@
 	<div class="about-contant">
 		<div class="container">
 			<div class="section-title">
-				<h2>وارد <span>آزمایشگاه</span> شوید و جهان را جستجو کنید</h2>
+				<h2>مسابقه برنامه نویسی <span>الگوریتمی</span> دانشگاه بجنورد</h2>
 			</div>
-			<div class="row">
+			<div class="row" style="padding-bottom: 100px ;">
 				<div class="col-md-6">
-					<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.
-						چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی
-						مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.</p>
+					<p>
+						انجمن علمی علوم کامپیوتر دانشگاه بجنورد با افتخار اعلام می‌کند که برای اولین بار مسابقه کدنویسی
+						الگوریتمی استان را برگزار می‌کند. این مسابقه، به منظور تقویت و توسعه مهارت‌های الگوریتمی و
+						کامپیوتری دانشجویان علاقه‌مند به حوزه برنامه نویسی برگزار می‌شود. شرکت در این مسابقه برای عموم
+						مردم آزاد است.
+					</p>
 				</div>
 				<div class="col-md-6">
 					<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.
@@ -132,20 +136,20 @@
 						مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.</p>
 				</div>
 			</div>
-			<div class="text-center mt60">
+			<!-- <div class="text-center mt60">
 				<a href="" class="site-btn">بیشتر</a>
-			</div>
+			</div> -->
 			<!-- popup video -->
-			<div class="intro-video">
+			<!-- <div class="intro-video">
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2">
 						<img src="{% static 'pics/video.jpg' %}" alt="">
-						<a href="#" class="video-popup"><!-- insert your video link here -->
+						<a href="#" class="video-popup">
 							<i class="fa fa-play"></i>
 						</a>
 					</div>
 				</div>
-			</div>
+			</div> -->
 		</div>
 	</div>
 </div>
@@ -156,7 +160,7 @@
 <div class="services-section spad">
 	<div class="container">
 		<div class="section-title dark">
-			<h2>وارد <span>آزمایشگاه</span> شوید و سرویس های ما را ببینید</h2>
+			<h2>با شرکت در  <span>مسابقه</span> مهارت های خود را به چالش بکشید.</h2>
 		</div>
 		<div class="row">
 			<!-- single service -->
@@ -166,8 +170,8 @@
 						<i class="flaticon-023-flask"></i>
 					</div>
 					<div class="service-text">
-						<h2>آزمایشگاه</h2>
-						<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.
+						<h2>تاریخ برگزاری</h2>
+						<p>پنجشنبه، 9ام آذرماه
 						</p>
 					</div>
 				</div>
@@ -179,8 +183,8 @@
 						<i class="flaticon-011-compass"></i>
 					</div>
 					<div class="service-text">
-						<h2>پروژه های آنلاین</h2>
-						<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.
+						<h2>ساعت برگزاری</h2>
+						<p>8 صبح تا هر وقت تموم کردین
 						</p>
 					</div>
 				</div>
@@ -189,44 +193,18 @@
 			<div class="col-md-4 col-sm-6">
 				<div class="service">
 					<div class="icon">
-						<i class="flaticon-037-idea"></i>
+						<i class="flaticon-011-compass"></i>
 					</div>
 					<div class="service-text">
-						<h2>بازاریابی هوشمند</h2>
-						<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.
-						</p>
-					</div>
-				</div>
-			</div>
-			<!-- single service -->
-			<div class="col-md-4 col-sm-6">
-				<div class="service">
-					<div class="icon">
-						<i class="flaticon-039-vector"></i>
-					</div>
-					<div class="service-text">
-						<h2>شبکه های اجتماعی</h2>
-						<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.
-						</p>
-					</div>
-				</div>
-			</div>
-			<!-- single service -->
-			<div class="col-md-4 col-sm-6">
-				<div class="service">
-					<div class="icon">
-						<i class="flaticon-036-brainstorming"></i>
-					</div>
-					<div class="service-text">
-						<h2>طوفان مغزی</h2>
-						<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.
+						<h2>مکان برگزاری</h2>
+						<p>دانشگاه دولتی بجنورد، دانشکده هنر
 						</p>
 					</div>
 				</div>
 			</div>
 		</div>
 		<div class="text-center">
-			<a href="" class="site-btn">بیشتر</a>
+			<a href="{% url 'website:terms' %}" class="site-btn">قوانین و شرایط شرکت در مسابقه</a>
 		</div>
 	</div>
 </div>
@@ -316,7 +294,7 @@
 
 
 		<!-- ======= Blog Section ======= -->
-		{% include 'website/widgets/recent-posts.html' %}
+
 		<!-- End Blog Section -->
 
 		{% endblock %}
