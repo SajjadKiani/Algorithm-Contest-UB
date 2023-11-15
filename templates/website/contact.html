@@ -10,99 +10,127 @@
 
 {% block content %}
 
-	<!-- Header section -->
-	<header class="header-section">
-		<div class="logo">
-			<img src="{% static 'pics/logo.png' %}" alt=""><!-- Logo -->
-		</div>
-		<!-- Navigation -->
-		<div class="responsive"><i class="fa fa-bars"></i></div>
-		<nav>
-			<ul class="menu-list">
-				<li><a href="{% url 'website:index' %}">صفحه نخست</a></li>
-				<li><a href="{% url 'website:register' %}">ثبت نام</a></li>
-				<li><a href="{% url 'blog:index' %}">بلاگ</a></li>
-				<li><a href="{% url 'website:countdown' %}">زمان برگزاری</a></li>
-				<li><a href="{% url 'website:terms' %}">شرایط و قوانین</a></li>
-				<li class="active"><a href="{% url 'website:contact' %}">تماس با ما</a></li>
-			</ul>
-		</nav>
-	</header>
-	<!-- Header section end -->
+<!-- Header section -->
+<header class="header-section">
+	<div class="logo">
+		<img src="{% static 'pics/logo.png' %}" alt=""><!-- Logo -->
+	</div>
+	<!-- Navigation -->
+	<div class="responsive"><i class="fa fa-bars"></i></div>
+	<nav>
+		<ul class="menu-list">
+			<li><a href="{% url 'website:index' %}">صفحه نخست</a></li>
+			<li><a href="{% url 'website:register' %}">ثبت نام</a></li>
+			<li><a href="{% url 'blog:index' %}">بلاگ</a></li>
+			<li><a href="{% url 'website:countdown' %}">زمان برگزاری</a></li>
+			<li><a href="{% url 'website:terms' %}">شرایط و قوانین</a></li>
+			<li class="active"><a href="{% url 'website:contact' %}">تماس با ما</a></li>
+		</ul>
+	</nav>
+</header>
+<!-- Header section end -->
 
-	<!-- Page header -->
-	<div class="page-top-section">
-		<div class="overlay"></div>
-		
-		<div class="container text-right">
-			
-			<div class="page-info">
-				
-				<h2>تماس با ما</h2>
-				<div class="page-links">
-					<a href="{% url 'website:index' %}" style="background-color: rgba(240, 248, 255, 0);">صفحه نخست</a>
-					<span>تماس با ما</span>
-				</div>
+<!-- Page header -->
+<div class="page-top-section">
+	<div class="overlay"></div>
+
+	<div class="container text-right">
+
+		<div class="page-info">
+
+			<h2>تماس با ما</h2>
+			<div class="page-links">
+				<a href="{% url 'website:index' %}" style="background-color: rgba(240, 248, 255, 0);">صفحه نخست</a>
+				<span>تماس با ما</span>
 			</div>
 		</div>
-
 	</div>
-	<!-- Page header end-->
+
+</div>
+<!-- Page header end-->
 
 
-	<!-- Google map -->
-	<!-- <div class="map" id="map-area"></div> -->
-	
-	
+<!-- Google map -->
+<!-- <div class="map" id="map-area"></div> -->
 
-	<!-- Contact section -->
-	<div class="contact-section spad fix">
-		<div class="container">
-			<div class="row">
-				<!-- contact info -->
-				<div class="col-md-5 col-md-offset-1 contact-info col-push">
-					<div class="section-title left">
-						<h2>انجمن علمی علوم کامپیوتر دانشگاه بجنورد</h2>
-						
-					</div>
-					<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد</p>
-					<h3 class="mt60">محل برگزاری مسابقه</h3>
-					<p class="con-item">ایران | بجنورد | دانشگاه بجنورد</p>
-					<p class="con-item">09013023089</p>
-					<p class="con-item">info@webrubik.com</p>
-					<div>
-						<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6336.025378679743!2d57.29606700000001!3d37.436805!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3f7095ed2d9c5c69%3A0xdcf137d341b1b08e!2sUniversity%20of%20Bojnurd!5e0!3m2!1sen!2sus!4v1699644876858!5m2!1sen!2sus" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-					</div>
+
+
+<!-- Contact section -->
+<div class="contact-section spad fix">
+	<div class="container">
+		<div class="row">
+			<!-- contact info -->
+			<div class="col-md-5 col-md-offset-1 contact-info col-push">
+				<div class="section-title left">
+					<h2>انجمن علمی علوم کامپیوتر دانشگاه بجنورد</h2>
+
 				</div>
-				<!-- contact form -->
-				<div class="col-md-6 col-pull">
-					<form class="form-class" id="con_form" action="{% url 'website:contact' %}" method="post">
-						<div class="row">
-							{% csrf_token %}
-						  <input type="hidden" name="form_id" value="contact">
-							<div class="col-sm-6">
-								<input type="text" name="name" placeholder="نام شما" required>
-							</div>
-							<div class="col-sm-6">
-								<input type="text" name="email" placeholder="پست الکترونیک" required>
-							</div>
-							<div class="col-sm-12">
-								<input type="text" name="subject" placeholder="موضوع">
-								<textarea name="message" placeholder="پیام"></textarea>
-								<button class="site-btn" type="submit">ارسال</button>
-							</div>
-						</div>
-					</form>
+				<p>
+					برای ارتباط بیشتر با ما می‌توانید از راه های ارتباطی زیر استفاده کنید.
+				</p>
+
+				<!-- <h3 class="mt60">محل برگزاری مسابقه</h3> -->
+				<!-- <p class="con-item">ایران | بجنورد | دانشگاه بجنورد</p> -->
+				<p class="con-item">
+					شماره های تماس:
+				</br>
+					09013023089
+				</br>
+					09101499645
+				</p>
+				<p class="con-item">
+					آدرس ایمیل:
+				</br>
+					info@ubpc.tech
+				</p>
+				<p class="con-item">
+					آیدی تلگرام:
+				</br>
+					<a href="http://t.me/www_mohammad">
+						@www_mohammad
+					</a>
+				</br>
+				<a href="http://t.me/masoud_kve">
+					@masoud_kve
+				</a>
 					
+				</p>
+				<div>
+					<iframe
+						src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6336.025378679743!2d57.29606700000001!3d37.436805!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3f7095ed2d9c5c69%3A0xdcf137d341b1b08e!2sUniversity%20of%20Bojnurd!5e0!3m2!1sen!2sus!4v1699644876858!5m2!1sen!2sus"
+						width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+						referrerpolicy="no-referrer-when-downgrade"></iframe>
 				</div>
+			</div>
+			<!-- contact form -->
+			<div class="col-md-6 col-pull">
+				<form class="form-class" id="con_form" action="{% url 'website:contact' %}" method="post">
+					<div class="row">
+						{% csrf_token %}
+						<input type="hidden" name="form_id" value="contact">
+						<div class="col-sm-6">
+							<input type="text" name="name" placeholder="نام شما" required>
+						</div>
+						<div class="col-sm-6">
+							<input type="text" name="email" placeholder="پست الکترونیک" required>
+						</div>
+						<div class="col-sm-12">
+							<input type="text" name="subject" placeholder="موضوع">
+							<textarea name="message" placeholder="پیام"></textarea>
+							<button class="site-btn" type="submit">ارسال</button>
+						</div>
+					</div>
+				</form>
+
 			</div>
 		</div>
 	</div>
-	<!-- Contact section end-->
+</div>
+<!-- Contact section end-->
 
 
-	{% endblock %}
-	<!-- </body> -->
-	
-	<!-- <extra js>-->
-	{% block extra_js %}{% endblock %}
+{% endblock %}
+<!-- </body> -->
+
+<!-- <extra js>-->
+{% block extra_js %}{% endblock %}

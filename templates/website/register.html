@@ -42,7 +42,7 @@
             justify-content: center;
             align-items: center;
             height: 100%;
-            margin-top: 2200px;
+            margin-top: 2450px;
             margin-bottom: 150px;
             position: relative;
 
@@ -146,7 +146,7 @@
             margin-bottom: 10px;
             margin-top: 25px;
             background-color: #055E68;
-           
+
             color: #fff;
             margin-top: 30px;
             margin-bottom: 30px;
@@ -226,7 +226,7 @@
             <div class="container">
                 <div class="signup-container">
                     <div class="signup-form">
-                        <h2 class="form-title">شرکت در مسابقه</h2>
+                        <h2 class="form-title" style="color: #e0f6ff ;">شرکت در مسابقه</h2>
                         <form method="POST" action="{% url 'website:register' %}" class="register-form">
 
                             {% csrf_token %}
@@ -349,7 +349,7 @@
                                     </div>
                                     <!-- person 3 -->
 
-                                    <button type="button" onclick="toggleForm()">نمایش/مخفی کردن فرم</button>
+                                    <button type="button" onclick="toggleForm()">سه نفری می‌خواین شرکت کنین؟</button>
                                     <div class="signup-form1">
 
                                         <h3 class="form-title">مشخصات شرکت کننده سوم</h2>
@@ -409,6 +409,22 @@
                                                 class="term-service">قوانین و شرایط
                                                 استفاده</a> را می‌پذیرم.
                                         </label>
+                                        <label class="label-agree-term" style="margin-top: 20px;">
+
+                                            برای پرداخت هزینه شرکت در مسابقه مبلغ ذکر شده را (150 هزار تومان برای دانشجویان دانشگاه بجنورد و 170 هزار تومان برای باقی افراد) به شماره کارت زیر واریز نمائید و عکس رسید به همراه نام تیم را برای مسئول ثبت نام با آیدی تلگرام
+                                            <a href="http://t.me/masoud_kve">
+                                                Masoud_kve@
+                                            </a>
+                                            ارسال کنید.
+
+                                        </label>
+
+                                        <div style="font-weight: bold;">
+                                            <p style="margin-top: 20px;">برای کپی کردن شماره کارت روی آن کلیک کنید:</p>
+                                            <!-- افزودن تگ span برای قابلیت کلیک و کپی -->
+                                            <p>شماره کارت (علی لک زائی)</p>
+                                            <span id="textToCopy" onclick="copyToClipboard()">6219861943859065</span>
+                                          </div>
                                     </div>
                                     <div class="form-group form-button">
                                         <button type="submit" class="form-submit">ثبت تیم</button>
@@ -446,13 +462,34 @@
             if (formVisible) {
                 form.style.display = "none";
                 formVisible = false;
-                container.style.marginTop = "2200px";
+                container.style.marginTop = "2450px";
             } else {
                 form.style.display = "block";
                 formVisible = true;
-                container.style.marginTop = "3150px";
+                container.style.marginTop = "3450px";
 
             }
+        }
+    </script>
+    <script>
+        function copyToClipboard() {
+            // انتخاب محتوای مورد نظر
+            var copyText = document.getElementById("textToCopy");
+
+            // ایجاد یک المان موقت برای کپی محتوا
+            var tempInput = document.createElement("input");
+            tempInput.value = copyText.textContent;
+            document.body.appendChild(tempInput);
+
+            // انجام عملیات کپی
+            tempInput.select();
+            document.execCommand("copy");
+
+            // حذف المان موقت اضافه شده
+            document.body.removeChild(tempInput);
+
+            // خروجی در کنسول (اینجا می‌توانید این خروجی را حذف کنید، این فقط برای نمایش در کنسول مرورگر است)
+            console.log("Copied: " + copyText.textContent);
         }
     </script>
     <!-- <script src="vendor/jquery/jquery.min.js"></script>

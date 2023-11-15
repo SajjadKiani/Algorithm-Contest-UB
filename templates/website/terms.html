@@ -1,39 +1,145 @@
-{% extends 'base.html' %}
 {% load static %}
 
-<!-- <title>  -->
-{% block title %} ub-csc contest {% endblock %}
-<!-- <extra css>-->
-{% block extra_css %}{% endblock %}
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
 
-<!-- <body> -->
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>ثبت نام در مسابقه</title>
 
-{% block content %}
+	<!-- Font Icon -->
+	<link rel="stylesheet" href="{% static 'fonts/material-icon/css/material-design-iconic-font.min.css' %}">
 
-<!-- Header section -->
-<header class="header-section">
-	<div class="logo">
-		<img src="{% static 'pics/logo.png' %}" alt=""><!-- Logo -->
+	<!-- Main css -->
+	<!-- Favicon -->
+	<link href="{% static 'pics/favicon.ico' %}" rel="shortcut icon" />
+	<!-- Stylesheets -->
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+	<link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" />
+	<link rel="stylesheet" href="{% static 'css/flaticon.css' %}" />
+	<link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}" />
+	<link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}" />
+	<link rel="stylesheet" href="{% static 'css/style.css' %}" />
+	<style>
+		body {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			min-height: 100vh;
+			background-color: #474747;
+			font-family: Arial, sans-serif;
+			margin: 0;
+			direction: rtl;
+			font-family: "pick";
+			padding: 20px;
+		}
+
+		.container {
+			max-width: 800px;
+			margin: auto;
+			background-color: white;
+			padding: 20px;
+			border-radius: 10px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+			margin-top: 90px;
+			margin-bottom: 50px;
+			padding-left: 30px;
+			padding-right: 30px;
+		}
+
+		h1 {
+			color: #038fac;
+			text-align: center;
+			margin-top: 30px;
+			margin-bottom: 30px;
+		}
+
+		h2 {
+			color: #038fac;
+			margin-top: 10px;
+			margin-bottom: 10px;
+		}
+
+		h3 {
+			color: #038fac;
+			margin-top: 25px;
+			margin-bottom: 15px;
+		}
+
+		p {
+			text-align: justify;
+			line-height: 1.6;
+			margin-top: 5px;
+			margin-bottom: 5px;
+		}
+	</style>
+
+
+	<!-- Header section -->
+	<header class="header-section">
+		<div class="logo">
+			<img src="{% static 'pics/logo.png' %}" alt=""><!-- Logo -->
+		</div>
+		<!-- Navigation -->
+		<div class="responsive"><i class="fa fa-bars"></i></div>
+		<nav>
+			<ul class="menu-list">
+				<li><a href="{% url 'website:index' %}">صفحه نخست</a></li>
+				<li><a href="{% url 'website:register' %}">ثبت نام</a></li>
+				<li><a href="{% url 'blog:index' %}">بلاگ</a></li>
+				<li><a href="{% url 'website:countdown' %}">زمانبندی</a></li>
+				<li class="active"><a href="{% url 'website:terms' %}">شرایط و قوانین</a></li>
+				<li><a href="{% url 'website:contact' %}">تماس با ما</a></li>
+			</ul>
+		</nav>
+	</header>
+	<!-- Header section end -->
+	<div class="container">
+		<h1>قوانین و شرایط مسابقه</h1>
+
+		<h3>شرایط ثبت نام:</h3>
+		<p>شرکت در مسابقه بصورت گروهی می‌باشد.</p>
+		<p>تعداد نفرات هر گروه حداقل 2 نفر و حداکثر 3 نفر می‌باشد.</p>
+		<p>هزینه‌ شرکت در مسابقه برای دانشجویان دانشگاه بجنورد <strong>150هزار تومان</strong> و برای دیگر افراد
+			<strong>170هزار تومان</strong> می‌باشد.</p>
+		<p>مبلغ هزینه باید به شماره کارت اعلام شده در صفحه ثبت نام واریز و رسید واریزی آن برای مسئول ثبت نام از طریق
+			تلگرام
+			ارسال شود.</p>
+
+		<h3>قوانین اجرایی:</h3>
+		<p>تعداد نفرات هر گروه حداقل 2 نفر و حداکثر 3 نفر می‌باشد.</p>
+		<p>استفاده از همه زبان برنامه‌نویسی در مسابقه مجاز است.</p>
+		<p>هر تیم مجاز به استفاده از تنها یک لپ‌تاپ می‌باشد.</p>
+		<p>یک مسابقه تمرینی قبل از مسابقه اصلی برگزار می شود. شرکت در مسابقه تمرینی برای کلیه .تیم ها الزامی است</p>
+
+		<h3>تعداد سوالات و نحوه امتیاز‌دهی:</h3>
+		<p>سوالات در سه سطح a,b,c خواهند بود. و هر سوال به ترتیب یک، دو و سه امتیاز خواهند داشت.</p>
+		<p>تیمی که بیشترین امتیاز را در کمترین زمان بدست آورد برنده مسابقات خواهد بود.</p>
+
+		<h3>خطاها:</h3>
+		<p>برهم زدن نظم مسابقه.</p>
+		<p>هر نوع attack در شبکه به سرور یا کامپیوتر های دیگر.</p>
+		<p>استفاده از کلیه وسایل ارتباطی و الکترونیکی به جز لپ تاپی که تیم با آن اقدام به نوشتن برنامه می کند.</p>
+		<p>هرگونه رد و بدل کردن اطلاعات با دیگر تیم ها.</p>
 	</div>
-	<!-- Navigation -->
-	<div class="responsive"><i class="fa fa-bars"></i></div>
-	<nav>
-		<ul class="menu-list">
-			<li><a href="{% url 'website:index' %}">صفحه نخست</a></li>
-			<li><a href="{% url 'website:register' %}">ثبت نام</a></li>
-			<li><a href="{% url 'blog:index' %}">بلاگ</a></li>
-			<li><a href="{% url 'website:countdown' %}">زمانبندی</a></li>
-            <li class="active"><a href="{% url 'website:terms' %}">شرایط و قوانین</a></li>
-			<li><a href="{% url 'website:contact' %}">تماس با ما</a></li>
-		</ul>
-	</nav>
-</header>
-<!-- Header section end -->
-<div class="item  hero-item" data-bg="{% static 'pics/bg3.jpg' %}"></div>
 
-{% endblock %}
-<!-- </body> -->
 
-<!-- <extra js>-->
-{% block extra_js %}
-{% endblock %}
+
+	<!--====== Javascripts & Jquery ======-->
+	<script src="{% static 'js/jquery-2.1.4.min.js' %}"></script>
+	<script src="{% static 'js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'js/magnific-popup.min.js' %}"></script>
+	<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+	<script src="{% static 'js/circle-progress.min.js' %}"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0YyDTa0qqOjIerob2VTIwo_XVMhrruxo"></script>
+	<script src="{% static 'js/map.js' %}"></script>
+	<script src="{% static 'js/script.js' %}"></script>
+
+	</body>
+
+
+	<!-- Footer section end -->
+
+</html>
