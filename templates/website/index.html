@@ -5,7 +5,16 @@
 <!-- <title>  -->
 {% block title %} UBPC {% endblock %}
 <!-- <extra css>-->
-{% block extra_css %}{% endblock %}
+{% block extra_css %}
+<style>
+	#typing-text {
+		font-family: 'pick', monospace;
+		border-right: 2px solid;
+		white-space: nowrap;
+		overflow: hidden;
+	}
+</style>
+{% endblock %}
 
 <!-- <body> -->
 
@@ -27,6 +36,7 @@
 			<li><a href="{% url 'website:register' %}">ثبت نام</a></li>
 			<li><a href="{% url 'blog:index' %}">بلاگ</a></li>
 			<li><a href="{% url 'website:countdown' %}">زمان برگزاری</a></li>
+			<li><a href="{% url 'website:terms' %}">شرایط و قوانین</a></li>
 			<li><a href="{% url 'website:contact' %}">تماس با ما</a></li>
 		</ul>
 	</nav>
@@ -40,7 +50,7 @@
 
 	<div class="hero-content">
 		<div class="hero-center">
-			<img src="{% static 'pics/big-logo.png' %}" alt="">
+			<!-- <img src="{% static 'pics/big-logo.png' %}" alt=""> -->
 			{% if messages %}
 			{% for message in messages %}
 			<div class="text-center alert alert-{{ message.tags }}">
@@ -48,14 +58,14 @@
 			</div>
 			{% endfor %}
 			{% endif %}
-			<p style="text-align: center;
-            margin-bottom: 30px;
-            margin-top: 20px;
-            background-color: #2be6ab;
+			<p id="typing-text" style="
+            background-color: #038fac;
             border-radius: 4px;
-            padding-top: 10px;
+			margin-top: 50px;
+            padding-top: 5px;
             padding-bottom: 17px;
-            font-family: 'pick-bold';">اولین دوره‌ی مسابقات الگوریتمی</p>
+            font-family: 'pick-bold'; opacity: 0.8;"></p>
+
 
 		</div>
 	</div>
@@ -82,7 +92,8 @@
 					<div class="col-md-4 col-sm-6">
 						<div class="lab-card">
 							<div class="icon">
-								<i class="flaticon-023-flask"></i>
+								<img src="{% static 'pics/logo/countdown.png' %}" alt=""
+									style="height: 70px; width: 70px; margin-bottom: 5px;">
 							</div>
 							<h2>زمانبندی</h2>
 							<p>مسابقه کی شروع میشه؟
@@ -95,7 +106,8 @@
 					<div class="col-md-4 col-sm-6">
 						<div class="lab-card">
 							<div class="icon">
-								<i class="flaticon-011-compass"></i>
+								<img src="{% static 'pics/logo/signup.png' %}" alt=""
+									style="height: 70px; width: 70px; margin-bottom: 5px;">
 							</div>
 							<h2>ثبت نام</h2>
 							<p>میخوام تو مسابقه شرکت کنم
@@ -108,7 +120,8 @@
 					<div class="col-md-4 col-sm-6">
 						<div class="lab-card">
 							<div class="icon">
-								<i class="flaticon-037-idea"></i>
+								<img src="{% static 'pics/logo/call.png' %}" alt=""
+									style="height: 70px; width: 70px; margin-bottom: 5px;">
 							</div>
 							<h2>تماس با ما</h2>
 							<p> میخوام با پشتیبانی در تماس باشم
@@ -125,22 +138,21 @@
 	<!-- About contant -->
 	<div class="about-contant">
 		<div class="container">
-			<div class="section-title">
+			<div class="section-title" style="text-align: center;">
 				<h2>مسابقه برنامه نویسی <span>الگوریتمی</span> دانشگاه بجنورد</h2>
 			</div>
-			<div class="row" style="padding-bottom: 100px ;">
-				<div class="col-md-6">
-					<p>
+			<div class="row" style="padding-bottom: 100px ;
+			 display: flex;
+			  justify-content: center;
+			   align-items: center;
+			    text-align: center;">
+				<div class="col-md-7">
+					<p style="text-align: justify;">
 						انجمن علمی علوم کامپیوتر دانشگاه بجنورد با افتخار اعلام می‌کند که برای اولین بار مسابقه کدنویسی
 						الگوریتمی استان را برگزار می‌کند. این مسابقه، به منظور تقویت و توسعه مهارت‌های الگوریتمی و
 						کامپیوتری دانشجویان علاقه‌مند به حوزه برنامه نویسی برگزار می‌شود. شرکت در این مسابقه برای عموم
 						مردم آزاد است.
 					</p>
-				</div>
-				<div class="col-md-6">
-					<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.
-						چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی
-						مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.</p>
 				</div>
 			</div>
 			<!-- <div class="text-center mt60">
@@ -167,14 +179,15 @@
 <div class="services-section spad">
 	<div class="container">
 		<div class="section-title dark">
-			<h2>با شرکت در  <span>مسابقه</span> مهارت های خود را به چالش بکشید.</h2>
+			<h2>با شرکت در <span>مسابقه</span> مهارت های خود را به چالش بکشید.</h2>
 		</div>
 		<div class="row">
 			<!-- single service -->
 			<div class="col-md-4 col-sm-6">
 				<div class="service">
 					<div class="icon">
-						<img src="{% static 'pics/logo/date.png' %}" alt="" style="height: 40px; width: 40px; margin-bottom: 5px;">
+						<img src="{% static 'pics/logo/date.png' %}" alt=""
+							style="height: 40px; width: 40px; margin-bottom: 5px;">
 					</div>
 					<div class="service-text">
 						<h2>تاریخ برگزاری</h2>
@@ -187,7 +200,8 @@
 			<div class="col-md-4 col-sm-6">
 				<div class="service">
 					<div class="icon">
-						<img src="{% static 'pics/logo/clock.png' %}" alt="" style="height: 40px; width: 40px; margin-bottom: 5px;">
+						<img src="{% static 'pics/logo/clock.png' %}" alt=""
+							style="height: 40px; width: 40px; margin-bottom: 5px;">
 					</div>
 					<div class="service-text">
 						<h2>ساعت برگزاری</h2>
@@ -201,7 +215,8 @@
 				<div class="service">
 					<div class="icon">
 						<!-- <i class="flaticon-011-compass"></i> -->
-						<img src="{% static 'pics/logo/location.png' %}" alt="" style="height: 40px; width: 40px; margin-bottom: 5px;">
+						<img src="{% static 'pics/logo/location.png' %}" alt=""
+							style="height: 40px; width: 40px; margin-bottom: 5px;">
 					</div>
 					<div class="service-text">
 						<h2>مکان برگزاری</h2>
@@ -228,32 +243,7 @@
 					<h2>وارد <span>انجمن علمی علوم کامپیوتر</span> شوید و تیم ما را بشناسید</h2>
 				</div>
 				<div class="owl-carousel" id="testimonial-slide">
-					<!-- single testimonial -->
-					<div class="testimonial" style="direction: rtl;  display: flex;
-					flex-direction: column; align-items: center; text-align: center;">
 
-						<img src="{% static 'pics/team/123.jpg' %}" alt="">
-						<div class="client-info" style="margin-top: 10px;">
-							<div class="client-name">
-								<h2>محمدجواد زارع</h2>
-
-								<p>مسئول کمیته تولید محتوا و فضای مجازی</p>
-							</div>
-						</div>
-					</div>
-					<!-- single testimonial -->
-					<div class="testimonial" style="direction: rtl;  display: flex;
-					flex-direction: column; align-items: center; text-align: center;">
-
-						<img src="{% static 'pics/team/456.jpg' %}" alt="">
-						<div class="client-info" style="margin-top: 10px;">
-							<div class="client-name">
-								<h2>محمدجواد زارع</h2>
-
-								<p>مسئول کمیته تولید محتوا و فضای مجازی</p>
-							</div>
-						</div>
-					</div>
 					<!-- single testimonial masoud kaveh-->
 					<div class="testimonial" style="direction: rtl;  display: flex;
 					flex-direction: column; align-items: center; text-align: center;">
@@ -279,19 +269,17 @@
 						</div>
 					</div>
 					<!-- single testimonial mmd javad zare-->
-					<div class=" testimonial" style="direction: rtl;  display: flex;
-					flex-direction: column;
-					align-items: center;
-					text-align: center;">
+					<div class="testimonial" style="direction: rtl;  display: flex;
+					flex-direction: column; align-items: center; text-align: center;">
 
-								<img src="{% static 'pics/team/123.jpg' %}" alt="">
-								<div class="client-info" style="margin-top: 10px;">
-									<div class="client-name">
-										<h2>محمدجواد زارع</h2>
-										<p>مسئول کمیته تولید محتوا و فضای مجازی</p>
-									</div>
-								</div>
+						<img src="{% static 'pics/team/mmdjavad.jpg' %}" alt="">
+						<div class="client-info" style="margin-top: 10px;">
+							<div class="client-name">
+								<h2>محمدجواد زارع</h2>
+								<p>مسئول کمیته تولید محتوا و فضای مجازی</p>
 							</div>
+						</div>
+					</div>
 						</div>
 					</div>
 				</div>
@@ -310,4 +298,20 @@
 
 		<!-- <extra js>-->
 		{% block extra_js %}
+		<script>
+			const text = "اولین دوره مسابقات برنامه نویسی الگوریتمی دانشگاه بجنورد";
+			const typingElement = document.getElementById('typing-text');
+			let index = 0;
+
+			function type() {
+				if (index < text.length) {
+					typingElement.innerHTML += text.charAt(index);
+					index++;
+					setTimeout(type, 55); // تنظیم سرعت تایپ
+				}
+			}
+
+			type();
+		</script>
+
 		{% endblock %}

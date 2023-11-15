@@ -28,7 +28,7 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            background-color: #1e1e1e;
+            background-color: #474747;
             font-family: Arial, sans-serif;
             margin: 0;
             direction: rtl;
@@ -49,11 +49,11 @@
         }
 
         .signup-form {
-            border: 1px solid #ccc;
-            background-color: #737373;
+            border: 1px solid #e0f6ff;
+            background-color: #e0f6ff;
             padding: 30px;
             border-radius: 3px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.361);
             max-width: 500px;
             width: 100%;
         }
@@ -62,7 +62,7 @@
             text-align: center;
             margin-bottom: 30px;
             margin-top: 20px;
-            background-color: #2be6ab;
+            background-color: #038fac;
             border-radius: 4px;
             padding-top: 10px;
             padding-bottom: 17px;
@@ -105,7 +105,7 @@
         .signup-form button {
             width: 100%;
             padding: 10px;
-            background-color: #2be6ab;
+            background-color: #038fac;
             color: #fff;
             border: none;
             border-radius: 3px;
@@ -118,19 +118,20 @@
         }
 
         .signup-form button:hover {
-            background-color: #2be6ab;
+            background-color: #038fac;
         }
 
         /* preson3 */
         .signup-form1 {
-            border: 1px solid #ccc;
-            background-color: #fff;
+            border: 1px solid #e0f6ff;
+            background-color: #e0f6ff;
             padding: 30px;
             border-radius: 3px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.361);
             max-width: 500px;
             width: 100%;
             display: none;
+
         }
 
         .signup-form1 h2 {
@@ -145,7 +146,7 @@
             margin-bottom: 10px;
             margin-top: 25px;
             background-color: #055E68;
-            ;
+           
             color: #fff;
             margin-top: 30px;
             margin-bottom: 30px;
@@ -206,6 +207,7 @@
                 <li class="active"><a href="{% url 'website:register' %}">ثبت نام</a></li>
                 <li><a href="{% url 'blog:index' %}">بلاگ</a></li>
                 <li><a href="{% url 'website:countdown' %}">زمان برگزاری</a></li>
+                <li><a href="{% url 'website:terms' %}">شرایط و قوانین</a></li>
                 <li><a href="{% url 'website:contact' %}">تماس با ما</a></li>
             </ul>
         </nav>

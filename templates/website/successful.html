@@ -23,10 +23,11 @@
     <div class="responsive"><i class="fa fa-bars"></i></div>
     <nav>
         <ul class="menu-list">
-            <li class="active"><a href="{% url 'website:index' %}">صفحه نخست</a></li>
-            <li><a href="{% url 'website:register' %}">ثبت نام</a></li>
+            <li><a href="{% url 'website:index' %}">صفحه نخست</a></li>
+            <li class="active"><a href="{% url 'website:register' %}">ثبت نام</a></li>
             <li><a href="{% url 'blog:index' %}">بلاگ</a></li>
             <li><a href="{% url 'website:countdown' %}">زمان برگزاری</a></li>
+            <li><a href="{% url 'website:terms' %}">شرایط و قوانین</a></li>
             <li><a href="{% url 'website:contact' %}">تماس با ما</a></li>
         </ul>
     </nav>

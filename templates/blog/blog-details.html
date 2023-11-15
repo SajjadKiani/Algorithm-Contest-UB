@@ -24,6 +24,7 @@
 				<li><a href="{% url 'website:register' %}">ثبت نام</a></li>
 				<li class="active"><a href="{% url 'blog:index' %}">بلاگ</a></li>
 				<li><a href="{% url 'website:countdown' %}">زمان برگزاری</a></li>
+				<li><a href="{% url 'website:terms' %}">شرایط و قوانین</a></li>
 				<li><a href="{% url 'website:contact' %}">تماس با ما</a></li>
 			</ul>
 		</nav>
@@ -38,8 +39,8 @@
 			<div class="page-info">
 				<h2>بلاگ</h2>
 				<div class="page-links">
-					<a href="#">صفحه نخست</a>
-					<span>بلاگ</span>
+					<a href="#" style="background-color: rgba(240, 248, 255, 0);">صفحه نخست</a>
+					<span style="color: #e0f6ff;">{{post.title}}</span>
 				</div>
 			</div>
 		</div>
