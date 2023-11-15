@@ -3,7 +3,7 @@
 {% load thumbnail %}
 
 <!-- <title>  -->
-{% block title %} ub-csc contest {% endblock %}
+{% block title %} UBPC {% endblock %}
 <!-- <extra css>-->
 {% block extra_css %}{% endblock %}
 
@@ -48,7 +48,14 @@
 			</div>
 			{% endfor %}
 			{% endif %}
-			<p>اولین دوره‌ی مسابقات الگوریتمی</p>
+			<p style="text-align: center;
+            margin-bottom: 30px;
+            margin-top: 20px;
+            background-color: #2be6ab;
+            border-radius: 4px;
+            padding-top: 10px;
+            padding-bottom: 17px;
+            font-family: 'pick-bold';">اولین دوره‌ی مسابقات الگوریتمی</p>
 
 		</div>
 	</div>
@@ -167,7 +174,7 @@
 			<div class="col-md-4 col-sm-6">
 				<div class="service">
 					<div class="icon">
-						<i class="flaticon-023-flask"></i>
+						<img src="{% static 'pics/logo/date.png' %}" alt="" style="height: 40px; width: 40px; margin-bottom: 5px;">
 					</div>
 					<div class="service-text">
 						<h2>تاریخ برگزاری</h2>
@@ -176,11 +183,11 @@
 					</div>
 				</div>
 			</div>
-			<!-- single service -->
+			<!-- time -->
 			<div class="col-md-4 col-sm-6">
 				<div class="service">
 					<div class="icon">
-						<i class="flaticon-011-compass"></i>
+						<img src="{% static 'pics/logo/clock.png' %}" alt="" style="height: 40px; width: 40px; margin-bottom: 5px;">
 					</div>
 					<div class="service-text">
 						<h2>ساعت برگزاری</h2>
@@ -189,11 +196,12 @@
 					</div>
 				</div>
 			</div>
-			<!-- single service -->
+			<!-- location -->
 			<div class="col-md-4 col-sm-6">
 				<div class="service">
 					<div class="icon">
-						<i class="flaticon-011-compass"></i>
+						<!-- <i class="flaticon-011-compass"></i> -->
+						<img src="{% static 'pics/logo/location.png' %}" alt="" style="height: 40px; width: 40px; margin-bottom: 5px;">
 					</div>
 					<div class="service-text">
 						<h2>مکان برگزاری</h2>

@@ -34,7 +34,7 @@ class IndexView(ListView):
 class CreateTeam(SuccessMessageMixin, CreateView):
     model = Team
     template_name = "website/register.html"
-    success_url = reverse_lazy("website:index")
+    success_url = reverse_lazy("website:success")
     
     fields = [
         "team_name",
@@ -69,6 +69,11 @@ class CreateTeam(SuccessMessageMixin, CreateView):
     success_message = ".تیم شما با موفقیت ثبت شد. لطفا برای پرداخت هزینه ورودی به اطلاعیه ها مراجعه کنید "
     def form_valid(self, form):
         return super().form_valid(form)
+
+class SuccessView(ListView):
+    model = Team
+    template_name = "website/successful.html"
+    context_object_name = "teams"
 
 
 class ContactView(CreateView):

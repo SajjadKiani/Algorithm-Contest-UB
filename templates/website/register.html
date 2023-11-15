@@ -28,41 +28,67 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            background-color: #f2f2f2;
+            background-color: #1e1e1e;
             font-family: Arial, sans-serif;
             margin: 0;
-
+            direction: rtl;
+            font-family: "pick";
             padding: 20px;
         }
+
 
         .signup-container {
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100%;
-            margin-top: 3300px;
+            margin-top: 2200px;
             margin-bottom: 150px;
+            position: relative;
+
         }
 
         .signup-form {
             border: 1px solid #ccc;
-            background-color: #fff;
+            background-color: #737373;
             padding: 30px;
             border-radius: 3px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            max-width: 400px;
+            max-width: 500px;
             width: 100%;
         }
 
         .signup-form h2 {
             text-align: center;
             margin-bottom: 30px;
+            margin-top: 20px;
+            background-color: #2be6ab;
+            border-radius: 4px;
+            padding-top: 10px;
+            padding-bottom: 17px;
+            font-family: 'pick-bold';
+        }
+
+        .signup-form h3 {
+            text-align: center;
+            margin-bottom: 10px;
+            margin-top: 25px;
+            background-color: #055E68;
+            color: #fff;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            padding-top: 8px;
+            padding-bottom: 14px;
+            border-radius: 4px;
         }
 
         .signup-form h4 {
             text-align: right;
             margin-bottom: 20px;
             margin-top: 30px;
+            border-radius: 4px;
+            padding-top: 5px;
+            padding-bottom: 8px;
         }
 
         .signup-form input[type="text"],
@@ -85,9 +111,80 @@
             border-radius: 3px;
             font-size: 16px;
             cursor: pointer;
+            margin-bottom: 20px;
+            margin-top: 30px;
+            padding-top: 5px;
+            padding-bottom: 8px;
         }
 
         .signup-form button:hover {
+            background-color: #2be6ab;
+        }
+
+        /* preson3 */
+        .signup-form1 {
+            border: 1px solid #ccc;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 3px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+            display: none;
+        }
+
+        .signup-form1 h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            margin-top: 20px;
+            border-radius: 4px;
+        }
+
+        .signup-form1 h3 {
+            text-align: center;
+            margin-bottom: 10px;
+            margin-top: 25px;
+            background-color: #055E68;
+            ;
+            color: #fff;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            padding-top: 8px;
+            padding-bottom: 8px;
+            border-radius: 4px;
+        }
+
+        .signup-form1 h4 {
+            text-align: right;
+            margin-bottom: 20px;
+            margin-top: 30px;
+            border-radius: 4px;
+        }
+
+        .signup-form1 input[type="text"],
+        .signup-form1 input[type="email"],
+        .signup-form1 input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            font-size: 16px;
+        }
+
+        .signup-form1 button {
+            width: 100%;
+            padding: 10px;
+            background-color: #2be6ab;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .signup-form1 button:hover {
             background-color: #2be6ab;
         }
     </style>
@@ -117,11 +214,11 @@
     <div class="main">
         {% if messages %}
         {% for message in messages %}
-            <div class="text-center alert alert-{{ message.tags }}">
-                {{ message|safe }}
-            </div>
+        <div class="text-center alert alert-{{ message.tags }}">
+            {{ message|safe }}
+        </div>
         {% endfor %}
-    {% endif %}
+        {% endif %}
         <!-- Sign up form -->
         <section class="signup">
             <div class="container">
@@ -144,176 +241,180 @@
                             <!-- language -->
                             <h4>زبان برنامه نویسی</h4>
                             <div class="form-group">
-                                <label><i class="zmdi zmdi-account material-icons-name"></i></label>
+
                                 <input type="text" name="language" placeholder="زبان برنامه نویسی" required />
                             </div>
                             <!-- person 1 -->
-                            <h4>مشخصات شرکت کننده اول</h4>
-                            <div class="signup-form">
-                                <h5>نام</h5>
-                                <div class="form-group">
-                                    <label><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                    <input type="text" name="first_name1" placeholder="نام" required />
+                            <h3 class="form-title">مشخصات شرکت کننده اول</h2>
+
+                                <div class="signup-form">
+                                    <h5>نام</h5>
+                                    <div class="form-group">
+                                        <label><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                        <input type="text" name="first_name1" placeholder="نام" required />
+                                    </div>
+                                    <h5>نام خانوادگی</h5>
+                                    <div class="form-group">
+                                        <label><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                        <input type="text" name="last_name1" placeholder="نام خانوادگی" required />
+                                    </div>
+                                    <h5>جنسیت</h5>
+                                    <div class="form-group">
+                                        <select name="gender1" style="width:100%" required>
+                                            <option value="M">مرد</option>
+                                            <option value="F">زن</option>
+                                        </select>
+                                    </div>
+                                    <h5>شماره موبایل</h5>
+                                    <div class="form-group">
+                                        <label><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                        <input type="text" name="phone1" placeholder="شماره موبایل" required />
+                                    </div>
+                                    <h5>ایمیل</h5>
+                                    <div class="form-group">
+                                        <label><i class="zmdi zmdi-email"></i></label>
+                                        <input type="email" name="email1" placeholder="ایمیل" required />
+                                    </div>
+                                    <h5>تحصیلات</h5>
+                                    <div class="form-group">
+                                        <select name="education1" style="width:100%" required>
+                                            <option value="1">دانش آموز</option>
+                                            <option value="2">دانشجو</option>
+                                            <option value="3">دانش آموخته</option>
+                                            <option value="4">هیچکدام</option>
+                                        </select>
+                                    </div>
+                                    <h5>رشته تحصیلی</h5>
+                                    <div class="form-group">
+                                        <label><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                        <input type="text" name="major1" placeholder="رشته تحصیلی" />
+                                    </div>
+                                    <h5>شماره دانشجویی</h5>
+                                    <div class="form-group">
+                                        <label><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                        <input type="text" name="student_number1" placeholder="شماره دانشجویی" />
+                                    </div>
                                 </div>
-                                <h5>نام خانوادگی</h5>
-                                <div class="form-group">
-                                    <label><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                    <input type="text" name="last_name1" placeholder="نام خانوادگی" required />
-                                </div>
-                                <h5>جنسیت</h5>
-                                <div class="form-group">
-                                    <select name="gender1" style="width:100%" required>
-                                        <option value="M">مرد</option>
-                                        <option value="F">زن</option>
-                                    </select>
-                                </div>
-                                <h5>شماره موبایل</h5>
-                                <div class="form-group">
-                                    <label><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                    <input type="text" name="phone1" placeholder="شماره موبایل" required />
-                                </div>
-                                <h5>ایمیل</h5>
-                                <div class="form-group">
-                                    <label><i class="zmdi zmdi-email"></i></label>
-                                    <input type="email" name="email1" placeholder="ایمیل" required />
-                                </div>
-                                <h5>تحصیلات</h5>
-                                <div class="form-group">
-                                    <select name="education1" style="width:100%" required>
-                                        <option value="1">دانش آموز</option>
-                                        <option value="2">دانشجو</option>
-                                        <option value="3">دانش آموخته</option>
-                                        <option value="4">هیچکدام</option>
-                                    </select>
-                                </div>
-                                <h5>رشته تحصیلی</h5>
-                                <div class="form-group">
-                                    <label><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                    <input type="text" name="major1" placeholder="رشته تحصیلی" />
-                                </div>
-                                <h5>شماره دانشجویی</h5>
-                                <div class="form-group">
-                                    <label><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                    <input type="text" name="student_number1" placeholder="شماره دانشجویی" />
-                                </div>
-                            </div>
-                            <!-- person 2 -->
-                            <h4>مشخصات شرکت کننده دوم</h4>
-                            <div class="signup-form">
-                                <h5>نام</h5>
-                                <div class="form-group">
-                                    <label><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                    <input type="text" name="first_name2" placeholder="نام" required />
-                                </div>
-                                <h5>نام خانوادگی</h5>
-                                <div class="form-group">
-                                    <label><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                    <input type="text" name="last_name2" placeholder="نام خانوادگی" required />
-                                </div>
-                                <h5>جنسیت</h5>
-                                <div class="form-group">
-                                    <select name="gender2" style="width:100%" required>
-                                        <option value="M">مرد</option>
-                                        <option value="F">زن</option>
-                                    </select>
-                                </div>
-                                <h5>شماره موبایل</h5>
-                                <div class="form-group">
-                                    <label><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                    <input type="text" name="phone2" placeholder="شماره موبایل" required />
-                                </div>
-                                <h5>ایمیل</h5>
-                                <div class="form-group">
-                                    <label><i class="zmdi zmdi-email"></i></label>
-                                    <input type="email" name="email2" placeholder="ایمیل" required />
-                                </div>
-                                <h5>تحصیلات</h5>
-                                <div class="form-group">
-                                    <select name="education2" style="width:100%" required>
-                                        <option value="1">دانش آموز</option>
-                                        <option value="2">دانشجو</option>
-                                        <option value="3">دانش آموخته</option>
-                                        <option value="4">هیچکدام</option>
-                                    </select>
-                                </div>
-                                <h5>رشته تحصیلی</h5>
-                                <div class="form-group">
-                                    <label><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                    <input type="text" name="major2" placeholder="رشته تحصیلی" />
-                                </div>
-                                <h5>شماره دانشجویی</h5>
-                                <div class="form-group">
-                                    <label><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                    <input type="text" name="student_number2" placeholder="شماره دانشجویی" />
-                                </div>
-                            </div>
-                            <!-- person 3 -->
-                            <h4>مشخصات شرکت کننده سوم</h4>
-                            <div class="signup-form">
-                                <h5>نام</h5>
-                                <div class="form-group">
-                                    <label><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                    <input type="text" name="first_name3" placeholder="نام" />
-                                </div>
-                                <h5>نام خانوادگی</h5>
-                                <div class="form-group">
-                                    <label><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                    <input type="text" name="last_name3" placeholder="نام خانوادگی" />
-                                </div>
-                                <h5>جنسیت</h5>
-                                <div class="form-group">
-                                    <select name="gender3" style="width:100%">
-                                        <option value="M">مرد</option>
-                                        <option value="F">زن</option>
-                                    </select>
-                                </div>
-                                <h5>شماره موبایل</h5>
-                                <div class="form-group">
-                                    <label><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                    <input type="text" name="phone3" placeholder="شماره موبایل" />
-                                </div>
-                                <h5>ایمیل</h5>
-                                <div class="form-group">
-                                    <label><i class="zmdi zmdi-email"></i></label>
-                                    <input type="email" name="email3" placeholder="ایمیل" />
-                                </div>
-                                <h5>تحصیلات</h5>
-                                <div class="form-group">
-                                    <select name="education3" style="width:100%">
-                                        <option value="1">دانش آموز</option>
-                                        <option value="2">دانشجو</option>
-                                        <option value="3">دانش آموخته</option>
-                                        <option value="4">هیچکدام</option>
-                                    </select>
-                                </div>
-                                <h5>رشته تحصیلی</h5>
-                                <div class="form-group">
-                                    <label><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                    <input type="text" name="major3" placeholder="رشته تحصیلی" />
-                                </div>
-                                <h5>شماره دانشجویی</h5>
-                                <div class="form-group">
-                                    <label><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                    <input type="text" name="student_number3" placeholder="شماره دانشجویی" />
-                                </div>
-                            </div>
-                            <div class="form-group" style="margin-top: 30px;">
-                                <input type="checkbox" name="agree" id="agree-term" class="agree-term" />
-                                <label for="agree-term" class="label-agree-term">
-                                    <span><span></span></span> تمامی <a href="{% url 'website:terms' %}"
-                                        class="term-service">قوانین و شرایط
-                                        استفاده</a> را می‌پذیرم.
-                                </label>
-                            </div>
-                            <div class="form-group form-button">
-                                <button type="submit" class="form-submit">ثبت تیم</button>
-                            </div>
-                        
+                                <!-- person 2 -->
+                                <h3 class="form-title">مشخصات شرکت کننده دوم</h2>
+                                    <div class="signup-form">
+                                        <h5>نام</h5>
+                                        <div class="form-group">
+                                            <label><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                            <input type="text" name="first_name2" placeholder="نام" required />
+                                        </div>
+                                        <h5>نام خانوادگی</h5>
+                                        <div class="form-group">
+                                            <label><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                            <input type="text" name="last_name2" placeholder="نام خانوادگی" required />
+                                        </div>
+                                        <h5>جنسیت</h5>
+                                        <div class="form-group">
+                                            <select name="gender2" style="width:100%" required>
+                                                <option value="M">مرد</option>
+                                                <option value="F">زن</option>
+                                            </select>
+                                        </div>
+                                        <h5>شماره موبایل</h5>
+                                        <div class="form-group">
+                                            <label><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                            <input type="text" name="phone2" placeholder="شماره موبایل" required />
+                                        </div>
+                                        <h5>ایمیل</h5>
+                                        <div class="form-group">
+                                            <label><i class="zmdi zmdi-email"></i></label>
+                                            <input type="email" name="email2" placeholder="ایمیل" required />
+                                        </div>
+                                        <h5>تحصیلات</h5>
+                                        <div class="form-group">
+                                            <select name="education2" style="width:100%" required>
+                                                <option value="1">دانش آموز</option>
+                                                <option value="2">دانشجو</option>
+                                                <option value="3">دانش آموخته</option>
+                                                <option value="4">هیچکدام</option>
+                                            </select>
+                                        </div>
+                                        <h5>رشته تحصیلی</h5>
+                                        <div class="form-group">
+                                            <label><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                            <input type="text" name="major2" placeholder="رشته تحصیلی" />
+                                        </div>
+                                        <h5>شماره دانشجویی</h5>
+                                        <div class="form-group">
+                                            <label><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                            <input type="text" name="student_number2" placeholder="شماره دانشجویی" />
+                                        </div>
+                                    </div>
+                                    <!-- person 3 -->
+
+                                    <button type="button" onclick="toggleForm()">نمایش/مخفی کردن فرم</button>
+                                    <div class="signup-form1">
+
+                                        <h3 class="form-title">مشخصات شرکت کننده سوم</h2>
+                                            <h5>نام</h5>
+                                            <div class="form-group">
+                                                <label><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                                <input type="text" name="first_name3" placeholder="نام" />
+                                            </div>
+                                            <h5>نام خانوادگی</h5>
+                                            <div class="form-group">
+                                                <label><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                                <input type="text" name="last_name3" placeholder="نام خانوادگی" />
+                                            </div>
+                                            <h5>جنسیت</h5>
+                                            <div class="form-group">
+                                                <select name="gender3" style="width:100%">
+                                                    <option value="M">مرد</option>
+                                                    <option value="F">زن</option>
+                                                </select>
+                                            </div>
+                                            <h5>شماره موبایل</h5>
+                                            <div class="form-group">
+                                                <label><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                                <input type="text" name="phone3" placeholder="شماره موبایل" />
+                                            </div>
+                                            <h5>ایمیل</h5>
+                                            <div class="form-group">
+                                                <label><i class="zmdi zmdi-email"></i></label>
+                                                <input type="email" name="email3" placeholder="ایمیل" />
+                                            </div>
+                                            <h5>تحصیلات</h5>
+                                            <div class="form-group">
+                                                <select name="education3" style="width:100%">
+                                                    <option value="1">دانش آموز</option>
+                                                    <option value="2">دانشجو</option>
+                                                    <option value="3">دانش آموخته</option>
+                                                    <option value="4">هیچکدام</option>
+                                                </select>
+                                            </div>
+                                            <h5>رشته تحصیلی</h5>
+                                            <div class="form-group">
+                                                <label><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                                <input type="text" name="major3" placeholder="رشته تحصیلی" />
+                                            </div>
+                                            <h5>شماره دانشجویی</h5>
+                                            <div class="form-group">
+                                                <label><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                                <input type="text" name="student_number3"
+                                                    placeholder="شماره دانشجویی" />
+                                            </div>
+                                    </div>
+
+                                    <div class="form-group" style="margin-top: 30px;">
+                                        <input type="checkbox" name="agree" id="agree-term" class="agree-term" />
+                                        <label for="agree-term" class="label-agree-term">
+                                            <span><span></span></span> تمامی <a href="{% url 'website:terms' %}"
+                                                class="term-service">قوانین و شرایط
+                                                استفاده</a> را می‌پذیرم.
+                                        </label>
+                                    </div>
+                                    <div class="form-group form-button">
+                                        <button type="submit" class="form-submit">ثبت تیم</button>
+                                    </div>
+
                         </form>
-                        
-                        <div class="signup-image">
-                            <figure><img src="{% static 'pics/signup-image.jpg' %}" alt="sing up image"></figure>
-                        </div>
+
+
                     </div>
 
                 </div>
@@ -334,8 +435,26 @@
             submitButton.disabled = !this.checked;
         });
     </script>
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="js/main.js"></script>
+    <script>
+        var formVisible = false;
+
+        function toggleForm() {
+            var form = document.querySelector(".signup-form1");
+            var container = document.querySelector(".signup-container");
+            if (formVisible) {
+                form.style.display = "none";
+                formVisible = false;
+                container.style.marginTop = "2200px";
+            } else {
+                form.style.display = "block";
+                formVisible = true;
+                container.style.marginTop = "3150px";
+
+            }
+        }
+    </script>
+    <!-- <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="js/main.js"></script> -->
     <script src="{% static 'js/jquery-2.1.4.min.js' %}"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
     <script src="{% static 'js/magnific-popup.min.js' %}"></script>

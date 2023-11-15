@@ -5,6 +5,7 @@ from .views import (
     CreateTeam,
     TermsView,
     CountdownView,
+    SuccessView,
 )
 
 app_name = "website"
@@ -15,4 +16,5 @@ urlpatterns = [
     path("register", CreateTeam.as_view(), name="register"),
     path("terms", TermsView.as_view(), name="terms"),
     path("countdown", CountdownView.as_view(), name="countdown"),
+    path("success", SuccessView.as_view(), name="success"),
 ]

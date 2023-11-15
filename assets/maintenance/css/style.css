@@ -2,17 +2,23 @@
 @charset "UTF-8";
 
 @font-face {
-	font-family: 'Vazir';
-	src: url('../fonts/Vazir.eot');
-	src: local('../fonts/Vazir'), url('../fonts/Vazir.woff') format('woff'), url('../fonts/Vazir.ttf') format('truetype'), url('../fonts/Vazir.svg') format('svg');
+	font-family: 'pick';
+	src: url('../fonts/pick/picoopic-Medium.woff');
+	src: local('../fonts/pick'), url('../fonts/pick/picoopic-Medium.woff') format('woff'), url('../fonts/pick/picoopic-Medium.woff') format('truetype'), url('../fonts/Vazir.svg') format('svg');
 }
+@font-face {
+            font-family: 'pick-bold';
+            src: url('../fonts/pick/picoopic-Bold.woff');
+            src: local('../fonts/pick'), url('../fonts/pick/picoopic-Bold.woff') format('woff');
+        
+        }
 /*----------------------------------------*/
 /*  1.  Theme default CSS
 /*----------------------------------------*/
 html,
 body {
 	height: 100%;
-	font-family: "Vazir";
+	font-family: "pick";
 }
 /*------------------------
 	Header css
@@ -33,14 +39,15 @@ body {
 	-webkit-transition: all 0.4s ease 0s;
 	-o-transition: all 0.4s ease 0s;
 	transition: all 0.4s ease 0s;
-  font-family: "Vazir";
+  font-family: "pick";
 }
 
 .header-section .logo {
 	display: inline-block;
 	float: right;
-	padding-top: 20px;
-  padding-left: 50px;
+	padding-top: 6px;
+	padding-left: 50px;
+	
 }
 
 .header-section .logo img {

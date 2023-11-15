@@ -29,7 +29,7 @@ urlpatterns = [
 ]
 
 # admin interface Header
-admin.site.site_header = 'UB-CSC'
+admin.site.site_header = 'UBPC'
 admin.site.index_title = 'Admin Panel'
 
 # serving static and media for development

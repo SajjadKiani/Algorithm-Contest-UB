@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="fa">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ثبت نام در مسابقه</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .title,
+        .section-title {
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            margin-bottom: 20px;
+
+        }
+
+        input[type="text"],
+        input[type="tel"],
+        input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-right: -16px;
+            /* margin-left: -16px; */
+        }
+
+        input[type="radio"] {
+            margin-right: 5px;
+            margin-left: 10px;
+        }
+
+        button {
+            background-color: #2be6ab;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #055E68;
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+        <h1 class="title" style="background-color: #2be6ab;">شرکت در مسابقه</h1>
+        <form method="POST" action="{% url 'website:register' %}" dir="rtl">
+            <h2 class="section-title" style="background-color: #055E68;">اطلاعات تیم</h2>
+            <div class="form-field">
+                <label for="teamName">نام تیم:</label>
+                <input type="text" id="teamName" name="teamName" placeholder="نام تیم">
+            </div>
+            <div class="form-field">
+                <label for="university">نام دانشگاه:</label>
+                <input type="text" id="university" name="university" placeholder="نام دانشگاه">
+            </div>
+            <div class="form-field">
+                <label for="programmingLanguage">زبان برنامه نویسی:</label>
+                <input type="text" id="programmingLanguage" name="programmingLanguage" placeholder="زبان برنامه نویسی">
+            </div>
+
+            <h2 class="section-title" style="background-color: #055E68;">مشخصات شرکت‌کننده اول</h2>
+            <div class="form-field">
+                <label for="firstName">نام:</label>
+                <input type="text" id="firstName" name="firstName" placeholder="نام">
+            </div>
+            <div class="form-field">
+                <label for="lastName">نام خانوادگی:</label>
+                <input type="text" id="lastName" name="lastName" placeholder="نام خانوادگی">
+            </div>
+            <div class="form-field">
+                <label>جنسیت:</label>
+                <input type="radio" id="male" name="gender" value="مرد">
+                <label for="male">مرد</label>
+                <input type="radio" id="female" name="gender" value="زن">
+                <label for="female">زن</label>
+            </div>
+            <div class="form-field">
+                <label for="phoneNumber">شماره موبایل:</label>
+                <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="شماره موبایل">
+            </div>
+            <div class="form-field">
+                <label for="email">ایمیل:</label>
+                <input type="email" id="email" name="email" placeholder="ایمیل">
+            </div>
+            <div class="form-field">
+                <label for="major">رشته تحصیلی:</label>
+                <input type="text" id="major" name="major" placeholder="رشته تحصیلی">
+            </div>
+            <div class="form-field">
+                <label for="studentID">شماره دانشجویی:</label>
+                <input type="text" id="studentID" name="studentID" placeholder="شماره دانشجویی">
+            </div>
+            <h2 class="section-title" style="background-color: #055E68;">مشخصات شرکت‌کننده دوم</h2>
+            <div class="form-field">
+                <label for="secondFirstName">نام:</label>
+                <input type="text" id="secondFirstName" name="secondFirstName" placeholder="نام">
+            </div>
+            <div class="form-field">
+                <label for="secondLastName">نام خانوادگی:</label>
+                <input type="text" id="secondLastName" name="secondLastName" placeholder="نام خانوادگی">
+            </div>
+            <div class="form-field">
+                <label>جنسیت:</label>
+                <input type="radio" id="secondMale" name="secondGender" value="مرد">
+                <label for="secondMale">مرد</label>
+                <input type="radio" id="secondFemale" name="secondGender" value="زن">
+                <label for="secondFemale">زن</label>
+            </div>
+            <div class="form-field">
+                <label for="secondPhoneNumber">شماره موبایل:</label>
+                <input type="tel" id="secondPhoneNumber" name="secondPhoneNumber" placeholder="شماره موبایل">
+            </div>
+            <div class="form-field">
+                <label for="secondEmail">ایمیل:</label>
+                <input type="email" id="secondEmail" name="secondEmail" placeholder="ایمیل">
+            </div>
+            <div class="form-field">
+                <label for="secondMajor">رشته تحصیلی:</label>
+                <input type="text" id="secondMajor" name="secondMajor" placeholder="رشته تحصیلی">
+            </div>
+            <div class="form-field">
+                <label for="secondStudentID">شماره دانشجویی:</label>
+                <input type="text" id="secondStudentID" name="secondStudentID" placeholder="شماره دانشجویی">
+            </div>
+
+            <button type="button" onclick="showThirdParticipant()">مشخصات شرکت‌کننده سوم</button>
+        </form>
+    </div>
+
+
+
+    <script src="script.js"></script>
+    <script>
+        var thirdParticipantVisible = false;
+
+        function showThirdParticipant() {
+            var form = document.getElementById("registrationForm");
+
+            // اگر فرم نفر سوم وجود دارد و وضعیت نمایش آن true باشد، آن را حذف کنید
+            if (thirdParticipantVisible) {
+                var thirdParticipantSection = document.getElementById("thirdParticipantSection");
+                form.removeChild(thirdParticipantSection);
+                thirdParticipantVisible = false;
+            } else {
+                var thirdParticipantSection = document.createElement("div");
+                thirdParticipantSection.id = "thirdParticipantSection";
+                thirdParticipantSection.classList.add("form-field");
+
+                var thirdParticipantTitle = document.createElement("h2");
+                thirdParticipantTitle.textContent = "مشخصات شرکت‌کننده سوم";
+                thirdParticipantTitle.style.backgroundColor = "#055E68";
+
+                thirdParticipantSection.appendChild(thirdParticipantTitle);
+
+                var thirdParticipantFields = [
+                    { label: "نام:", id: "thirdFirstName" },
+                    { label: "نام خانوادگی:", id: "thirdLastName" },
+                    { label: "جنسیت:", id: "thirdGender" },
+                    { label: "شماره موبایل:", id: "thirdPhoneNumber" },
+                    { label: "ایمیل:", id: "thirdEmail" },
+                    { label: "رشته تحصیلی:", id: "thirdMajor" },
+                    { label: "شماره دانشجویی:", id: "thirdStudentID" },
+                ];
+
+                thirdParticipantFields.forEach(function (field) {
+                    var fieldLabel = document.createElement("label");
+                    fieldLabel.textContent = field.label;
+                    var fieldInput = document.createElement("input");
+                    fieldInput.type = "text";
+                    fieldInput.id = field.id;
+                    fieldInput.name = field.id;
+                    fieldInput.placeholder = field.label;
+
+                    thirdParticipantSection.appendChild(fieldLabel);
+                    thirdParticipantSection.appendChild(fieldInput);
+                });
+
+                form.insertBefore(thirdParticipantSection, form.lastElementChild);
+                thirdParticipantVisible = true;
+            }
+        }
+    </script>
+</body>
+
+</html>
