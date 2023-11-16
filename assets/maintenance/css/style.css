@@ -259,7 +259,7 @@ body {
 }
 
 .flip-clock-divider::after {
-  font-family: 'Vazir';
+  font-family: 'pick';
   color: #fff;
   font-size: 14px;
   text-transform: uppercase;
@@ -1027,7 +1027,7 @@ body {
 /* Large Mobile :480px. */
 @media only screen and (max-width: 767px) {
   .header-section .logo {
-    padding-top: 20px;
+    padding-top: 8px;
     padding-bottom: 20px;
   }
 
