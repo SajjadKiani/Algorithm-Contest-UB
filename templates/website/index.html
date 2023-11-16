@@ -64,6 +64,7 @@
 			margin-top: 50px;
             padding-top: 5px;
             padding-bottom: 17px;
+			width: 100%;
             font-family: 'pick-bold'; opacity: 0.8;"></p>
 
 
@@ -72,9 +73,12 @@
 
 	<!-- slider -->
 	<div id="hero-slider" class="owl-carousel">
-		<div class="item  hero-item" data-bg="{% static 'pics/bg3.jpg' %}"></div>
+		<!-- <div class="item  hero-item" data-bg="{% static 'pics/bg3.jpg' %}"></div>
 		<div class="item  hero-item" data-bg="{% static 'pics/baner4.jpg' %}"></div>
-		<div class="item  hero-item" data-bg="{% static 'pics/bg1.jpg' %}"></div>
+		<div class="item  hero-item" data-bg="{% static 'pics/bg1.jpg' %}"></div> -->
+		<img class="hero-image" src="{% static 'pics/bg3.jpg' %}" />
+		<img class="hero-image" src="{% static 'pics/baner4.jpg' %}" />
+		<img class="hero-image" src="{% static 'pics/bg1.jpg' %}" />
 	</div>
 </div>
 <!-- Intro Section -->

@@ -335,7 +335,6 @@ ul {
 	Hero section
 --------------------------*/
 .hero-section {
-	height: 100%;
 	direction: ltr;
 	position: relative;
 }
@@ -343,16 +342,40 @@ ul {
 .hero-content {
 	position: absolute;
 	width: calc(100% - 210px);
-	height: 100%;
+	/* height: 100%; */
 	margin-left: 105px;
-	display: table;
+	/* display: table; */
 	text-align: center;
 	z-index: 5;
 }
 
-.hero-content .hero-center {
-	display: table-cell;
-	vertical-align: middle;
+/* image height in desktop view */
+.hero-image {
+	width: 100%;
+	height: 800px;
+}
+
+.hero-content  {
+	/* display: table-cell;
+	vertical-align: middle; */
+	height: 800px;
+}
+
+.hero-center {
+	display: flex;
+	align-items: center;
+	height: 100%;
+}
+
+/* image height in mobile view */
+@media (max-width: 767px) {
+	.hero-image {
+	  height: 500px;
+	}
+
+	.hero-content {
+		height: 500px;
+	}
 }
 
 .hero-content p {
@@ -1641,7 +1664,7 @@ ul {
 		width: 50px;
 	}
 	.hero-content img {
-		max-width: 280px;
+		/* max-width: 280px; */
 	}
 	.test-overlay {
 		display: none;
